@@ -1,0 +1,122 @@
+﻿body,
+html {
+    padding: 0;
+    margin: 0;
+}
+/*header*/
+.header {
+    background-color: #10a84d;
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.admin-tasks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1;
+    color: #b1b1b1;
+    font-size: 18px;
+}
+
+.admin-header {
+    background-color: #f1f1f1;
+}
+
+.notice {
+    position: relative;
+}
+
+.fa-bell {
+    cursor: pointer;
+}
+
+.fa-circle {
+    top: 0;
+    left: 8px;
+}
+
+.notifications-container {
+    display: none;
+    color: #000;
+    background-color: #fff;
+    position: absolute;
+    width: 300px;
+    z-index: 2;
+    top: 100%;
+    right: 10px;
+    text-align: center;
+    box-shadow: 0 3px 3px 3px rgba(148, 148, 148, 0.5);
+}
+
+.notifications {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.notifications-container p {
+    font-size: 18px;
+}
+
+.notification {
+    text-align: start;
+    cursor: pointer;
+}
+
+    .notification:hover {
+        background-color: #f1f1ff;
+    }
+
+.notifications h5,
+.notifications p {
+    margin: 0;
+}
+
+.admin-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+/*charts*/
+.charts {
+    background-color: #d1d1ff;
+}
+
+.stat {
+    background-color: #fff;
+    font-size: 40px;
+    font-family: "Inter", sans-serif;
+    font-family: "Roboto", sans-serif;
+    min-width: max-content;
+    position: relative;
+    height: 129px;
+}
+
+    .stat h4 {
+        font-weight: 600;
+    }
+
+    .stat::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        width: 5px;
+        height: 100%;
+        background-color: #10a84d;
+    }
+
+#geoChart {
+    width: 100%;
+}
+
+footer {
+    background-color: #10a84d;
+    color: #fff;
+    text-align: center;
+}

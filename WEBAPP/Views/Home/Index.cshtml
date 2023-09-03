@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+    <link rel="stylesheet" href="css/home.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--contact header-->
+    <div class="container-fluid header ">
+        <ul class="contact-header m-0">
+            <li class="pe-3 py-2 " style="border-right: 1px solid rgba(0, 0, 0, 0.1);">
+                <i class="fa-sharp fa-solid fa-envelope " style="color: #15d562;"></i>
+                oussamahdidou15@gmail.com
+            </li>
+            <li class="ps-sm-3  py-2 " style="border-left: 1px solid rgba(0, 0, 0, 0.1);">
+                <i class="fa-solid fa-phone "
+                   style=" color: #15d562;"></i>
+                +212651755423
+            </li>
+        </ul>
+        <div class="login pe-3 ">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Account" asp-action="Logout">Logout</a>
+            }
+            else
+            {
+                <a asp-controller="Account" asp-action="Login">Login</a><a asp-controller="Account" asp-action="Register"> / Register </a>
+
+            }
+        </div>
+    </div>
+    <!---First-Section--->
+    <section class="container-fluid page-face px-0">
+        <!---navbar--->
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container">
+                <a class="navbar-brand" href="#">Nav<span style="color: #10a84d;">bar</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="#">Disabled</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="row ps-sm-5 py-5 container">
+            <div class="col-md-8">
+                <p class="p-0 m-0" style="color: #10a84d;">get started with online cources</p>
+                <h1>BEST ONLINE </h1>
+                <h1> LEARNING SYSTEM</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus illo veniam eum!</p>
+                <a class="button py-2 px-3" href="#">
+                    <span class="button-text pe-1">Discover</span><i class="fa-solid fa-arrow-right"> </i>
+                </a>
+            </div>
+        </div>
+
+    </section>
+    <!--second section-->
+    <section class="container-fluid p-0 section2">
+        <div class="row container-fluid p-0 m-0">
+            <div class="col-lg-3 py-3 ps-5 "
+                 style="border-right: 1px solid rgba(0, 0, 0, 0.1);border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
+                <icon class="icon">
+                    <svg xmlns=" http://www.w3.org/2000/svg" width="50" height="50" fill="#10a84d"
+                         class="bi bi-people-fill" viewBox="0 0 16 16">
+                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                    </svg>
+                </icon>
+                <div class="description">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam blanditiis
+                    libero molestias. Eum, eius dignissimos.
+                </div>
+            </div>
+            <div class="col-lg-3 py-3 ps-5"
+                 style="border-right: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
+                <icon class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#10a84d"
+                         class="bi bi-mastodon" viewBox="0 0 16 16">
+                        <path d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z" />
+                    </svg>
+                </icon>
+                <div class="description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit illum nam,
+                    repudiandae blanditiis quo quibusdam.
+                </div>
+            </div>
+            <div class="col-lg-3 py-3 ps-5 "
+                 style="border-right: 1px solid rgba(0, 0, 0, 0.1);border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
+                <icon class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#10a84d"
+                         class="bi bi-book-half" viewBox="0 0 16 16">
+                        <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                    </svg>
+                </icon>
+                <div class=" description">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident eligendi
+                    voluptates rerum obcaecati id? Molestiae.
+                </div>
+            </div>
+            <div class="col-lg-3 py-3 ps-5 "
+                 style="border-left: 1px solid rgba(0, 0, 0, 0.1);border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
+                <icon class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#10a84d"
+                         class="bi bi-code-slash" viewBox="0 0 16 16">
+                        <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
+                    </svg>
+                </icon>
+                <div class="description">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident eligendi
+                    voluptates rerum obcaecati id? Molestiae.
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--slider-->
+    <section class="container-fluid py-5 px-0 m-0 section3">
+        <div class="row container-fluid ">
+            <div class="col-lg-8">
+                <div class="level-slider container">
+
+                    <article class="bg-white level-slider-item">
+                        <div class="slide-image">
+                            <img src="./img/todo.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="slide-text p-4">
+                            <h3> Productivity Partner: Organize Your Time with Ease</h3>
+                            <p>
+                                Seize control of your schedule with our intuitive todo list feature. Prioritize tasks,
+                                set milestones, and conquer your academic responsibilities effectively. Elevate your
+                                time management skills and strike a harmonious balance between study and leisure.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="bg-white level-slider-item ">
+                        <div class="slide-image">
+                            <img src="./img/collaborative.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="slide-text p-4">
+                            <h3>Collaboration Hub: Build Meaningful Connections</h3>
+                            <p>
+                                Connect and collaborate with fellow students on a whole new level. Follow, engage, and
+                                form valuable social relationships that foster learning, growth, and shared success.
+                                Experience a dynamic community where knowledge and support flow seamlessly.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="bg-white level-slider-item">
+                        <div class="slide-image">
+                            <img src="./img/library.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="slide-text p-4">
+                            <h3> Knowledge Oasis: Dive into a World of Learning</h3>
+                            <p>
+                                Unlock a treasure trove of courses and articles covering diverse subjects. Fuel your
+                                curiosity and academic pursuits with our extensive library, curated to enrich your
+                                understanding . Embark on a quest of knowledge where
+                                each page turned unveils new horizons of learning.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="bg-white level-slider-item">
+                        <div class="slide-image">
+                            <img src="./img/project.webp" class="img-fluid" alt="">
+                        </div>
+                        <div class="slide-text p-4">
+                            <h3> Showcase and Inspire: Unveil Your Projects, Explore Others</h3>
+                            <p>
+                                Let your creativity shine by sharing your projects with the world. Get inspired by
+                                fellow students' endeavors and discover a realm of innovation. Witness the power of
+                                collective insight. Immerse yourself in a
+                                symphony of imagination where ideas converge
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="col-lg-4 univers p-0 container-fluid">
+                <div class="universheader p-3">
+                    <h3>Our Collaborative University Partnerships</h3>
+                </div>
+                <div class="univer-body  pt-5">
+                    <div class="unitem my-3 px-3 py-4 ">
+                        <h4>Université Harvard</h4>
+                    </div>
+                    <div class="unitem my-3 px-3 py-4 ">
+                        <h4>Université Stanford</h4>
+                    </div>
+                    <div class="unitem my-3 px-3 py-4 ">
+                        <h4>Université d'Oxford</h4>
+                    </div>
+                    <div class="unitem my-3 px-3 py-4 ">
+                        <h4>Université Columbia</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!--video-->
+    <section class="video container-fluid p-0 p-md-5 mt-3">
+
+
+        <div class="video-container container p-0">
+            <div class="video-overlay">
+                <i class="fa fa-play-circle video-control-play"></i>
+                <i class="fa fa-pause-circle video-control-pause"></i>
+            </div>
+            <video >
+                <source src="video/University Promo Video Template (Editable).mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+    <section class="container-fluid contact p-5 my-4">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="container  contact-form p-5">
+                    <h1>Contact us</h1>
+                    <form action="" class="form">
+                        <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text p-3"><i class="fa fa-user"></i></div>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Name">
+                        </div>
+                        <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text p-3"><i class="fa fa-envelope"></i></div>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Email">
+                        </div>
+                        <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text p-3 "><i class="fa fa-commenting"></i></div>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Object">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text py-5 px-3"><i class="fa fa-message"></i></div>
+                            </div>
+                            <textarea class="form-control" placeholder="Message"></textarea>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6 ">
+                <div class="container-fluid">
+                    <div class="map-container p-3 container-fluid">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21019.171211795754!2d2.3872370999999997!3d48.81249765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e673b5023235ad%3A0x5dc8118d7cbf704f!2s94200%20Ivry-sur-Seine%2C%20France!5e0!3m2!1sfr!2sma!4v1692722573658!5m2!1sfr!2sma"
+                                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start ">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+                <span>Get connected with us on social networks:</span>
+            </div>
+            <!-- Left -->
+            <!-- Right -->
+            <div>
+                <a href="" class="me-4 ">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="me-4 ">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="me-4 ">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="" class="me-4 ">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="" class="me-4 ">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="" class="me-4 ">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+
+        <!-- Copyright -->
+        <div class="text-center p-4">
+            © 2021 Copyright:
+            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+            integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="js/home.js"></script>
+</body>
+
+
+</html>

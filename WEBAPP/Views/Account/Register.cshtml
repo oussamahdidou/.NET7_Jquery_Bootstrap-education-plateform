@@ -1,0 +1,67 @@
+﻿@using WEBAPP.VModels
+@{
+    Layout = "_Layout"; // Use the "_Layout.cshtml" layout
+}
+
+@model RegisterVM
+@*
+  
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}    <div class="container mt-5 p-3">
+    <h2>Registration Form</h2>
+    @if (ViewData["error"]!=null)
+    {
+        <div class="alert alert-danger " id="error"  role="alert">
+                @ViewData["error"]
+        </div>
+    }
+
+    <form asp-action="Register" asp-controller="Account" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" asp-for="Username" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" asp-for="Email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" asp-for="Password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" class="form-control" id="confirmPassword" asp-for="ConfirmedPassword" required>
+        </div>
+        <div class="form-group">
+            <label>Gender:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" asp-for="Gender" id="male" value="Male" required>
+                <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" asp-for="Gender" id="female" value="Female" checked>
+                <label class="form-check-label" for="female">Female</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nationality">Nationality:</label>
+            <select class="form-control" id="nationality" asp-for="Nationality" required>
+                <option value="Morocco">Morocco</option>
+                <option value="Tunisia">Tunisia</option>
+                <option value="Algeria">Algeria</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="image">Profile Image</label>
+            <input type="file" asp-for="image" accept=".JPEG, .JPG, .PNG, .JFIF,.jpeg, .jpg, .png, .jfif">
+        </div>
+        <button type="submit" class="btn btn-primary m-3">Register</button>
+    </form>
+</div>
+
+<!-- Include Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

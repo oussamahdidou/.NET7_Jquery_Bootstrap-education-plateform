@@ -1,0 +1,32 @@
+﻿@using WEBAPP.VModels
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    Layout = "_Layout"; // Use the "_Layout.cshtml" layout
+}
+@model CreateCourseVM
+
+
+
+<h2>Create New Item</h2>
+
+<form asp-controller="Document" asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="file"></label>
+        <input asp-for="file" type="file" class="form-control-file" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+

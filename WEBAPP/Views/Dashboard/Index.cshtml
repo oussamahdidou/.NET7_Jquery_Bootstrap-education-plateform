@@ -1,0 +1,340 @@
+﻿@using WEBAPP.VModels
+@model DashboardVM
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- font awesome cdn link  -->
+
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="header container-fluid ">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container">
+                <a class="navbar-brand" href="#">Nav<span style="color: #ffffff;">bar</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="#">Disabled</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <section class="container-fluid admin-header">
+        <nav class="container admin-tasks p-1">
+            <span class="admin "><img src="@Model.image" alt="" class="admin-image"> @Model.username </span>
+            <span class="notice">
+                <i class="fa fa-bell"></i>
+                <i class="fa-solid fa-circle fa-beat" style="color: #e00000; font-size: 10px; position: absolute;"></i>
+                2 new notifications
+                <div class="notifications-container  pt-3">
+                    <p>Notification</p>
+                    <ul class="notifications">
+                        <li class="notification p-3" data-bs-toggle="collapse" data-bs-target="#1" aria-expanded="false"
+                            aria-controls="1">
+                            <h5>Oussama Hdidou</h5>
+                            <h6>oussamahdidou15@gmail.com</h6>
+                            <div class="collapse collapse pt-3" id="1">
+                                <div>
+                                    how i can get a premium account
+                                    it exist an offer for Student
+                                </div>
+                            </div>
+                        </li>
+                        <li class="notification p-3" data-bs-toggle="collapse" data-bs-target="#2" aria-expanded="false"
+                            aria-controls="2">
+                            <h5>Oussama Hdidou</h5>
+                            <h6>oussamahdidou15@gmail.com</h6>
+                            <div class="collapse collapse pt-3" id="2">
+                                <div>
+                                    how i can get a premium account
+                                    it exist an offer for Student
+                                </div>
+                            </div>
+                        </li>
+                        <li class="notification p-3" data-bs-toggle="collapse" data-bs-target="#3" aria-expanded="false"
+                            aria-controls="3">
+                            <h5>Oussama Hdidou</h5>
+                            <h6>oussamahdidou15@gmail.com</h6>
+                            <div class="collapse collapse pt-3" id="3">
+                                <div>
+                                    how i can get a premium account
+                                    it exist an offer for Student
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </span>
+
+        </nav>
+
+
+    </section>
+    <!---chart section-->
+    <section class="charts container-fluid">
+        <div class="stats p-3 container">
+            <div class="row ">
+                <div class="col-lg-3 p-3">
+                    <div class=" stat p-3 px-4 ">
+                        <i class="fa fa-user-graduate mb-3" style="color: #10a84d;"></i>
+                        <h5>@Model.Students Student</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 p-3">
+                    <div class=" stat p-3 px-4 ">
+                        <i class="fa fa-arrow-right-arrow-left mb-3" style="color: #10a84d;"></i>
+                        <h5>@Model.Relations Relation</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 p-3">
+                    <div class=" stat p-3 px-4 ">
+                        <i class="fa fa-project-diagram" style="color: #10a84d;"></i>
+                        <h5>@Model.Projects project</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 p-3">
+                    <div class=" stat p-3 px-4 ">
+                        <i class="fa fa-book-atlas mb-3" style="color: #10a84d;"></i>
+                        <h5>@Model.courses course</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container pb-5">
+
+            <div class="row">
+                <div class="col-lg-12 mt-4">
+                    <div class="chart p-4 bg-white ">
+                        <h5>Lorem, ipsum.</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                        <canvas id="barChart" style="max-height: 300px;"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-8 mt-4">
+                    <div class="chart p-4 bg-white  container-fluid">
+                        <h5>Lorem, ipsum.</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                        <div class="" id="geoChart" style="height: 300px; "></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4">
+                    <div class="chart p-4 bg-white ">
+                        <h5>Lorem, ipsum.</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                        <canvas id="pieChart" style="max-height: 300px;"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-8 mt-4">
+                    <div class="chart p-4 bg-white ">
+                        <h5>Lorem, ipsum.</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                        <canvas id="lineChart" style="max-height: 300px; "></canvas>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4">
+                    <div class="chart p-4 bg-white ">
+                        <h5>Lorem, ipsum.</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                        <canvas id="doughnutChart" style="max-height: 300px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container p-2">
+            <p class="mb-0">© 2023 Your Website. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Bootstrap (JS) - You only need one of these -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <!-- jQuery - You only need one of these -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <!-- Slick Carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Your custom dashboard.js script (assuming it doesn't include the same libraries) -->
+    <script src="js/dashboard.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fetch data from ASP.NET Core API here...
+
+            // Sample data for demonstration purposes
+            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+            var values = [150, 220, 120, 180, 280, 240];
+
+            // Create and render the charts
+            var lineChartCanvas = document.getElementById('lineChart');
+            var barChartCanvas = document.getElementById('barChart');
+            var pieChartCanvas = document.getElementById('pieChart');
+            var doughnutChartCanvas = document.getElementById('doughnutChart');
+
+            var lineChart = createLineChart(lineChartCanvas, months, values);
+            var barChart = createBarChart(barChartCanvas, months, values);
+            var pieChart = createPieChart(pieChartCanvas, months, values);
+            var doughnutChart = createDoughnutChart(doughnutChartCanvas, months, values);
+
+            // Resize charts when window is resized
+            window.addEventListener('resize', function () {
+                lineChart.resize();
+                barChart.resize();
+                pieChart.resize();
+                doughnutChart.resize();
+            });
+        });
+
+        // Create line chart
+        function createLineChart(canvas, labels, data) {
+            return new Chart(canvas, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Monthly Performance',
+                        data: data,
+                        borderColor: '#007bff',
+                        fill: false,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        }
+
+        // Create bar chart
+        function createBarChart(canvas, labels, data) {
+            return new Chart(canvas, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Monthly Distribution',
+                        data: data,
+                        backgroundColor: '#28a745'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    barPercentage: 0.6, // Adjust as needed for narrower bars
+                    categoryPercentage: 0.7, // Adjust as needed for narrower bars
+                    borderRadius: 10,
+                    borderRadius: 25,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Create pie chart
+        function createPieChart(canvas, labels, data) {
+            return new Chart(canvas, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Distribution',
+                        data: data,
+                        backgroundColor: ['#f39c12', '#d35400', '#e74c3c', '#3498db', '#27ae60', '#8e44ad']
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        }
+
+        // Create doughnut chart
+        function createDoughnutChart(canvas, labels, data) {
+            return new Chart(canvas, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Distribution',
+                        data: data,
+                        backgroundColor: ['#f39c12', '#d35400', '#e74c3c', '#3498db', '#27ae60', '#8e44ad']
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        }
+        // Load the Google Charts library
+        // Access the data from ViewBag and serialize it to JSON
+            // Access data from ViewBag and assign it to a JavaScript variable
+
+        google.charts.load('current', { 'packages': ['geochart'] });
+        google.charts.setOnLoadCallback(drawGeoChart);
+
+        function drawGeoChart() {
+            // Replace this sample data with your actual geo chart data
+            var geoData = google.visualization.arrayToDataTable([
+                ['Country', 'Popularity'],
+                ['United States', 200],
+                ['Canada', 300],
+                ['Morocco', 900],
+              
+                // Add more data as needed
+            ]);
+
+            var geoChart = new google.visualization.GeoChart(document.getElementById('geoChart'));
+
+            geoChart.draw(geoData, {
+                colorAxis: { colors: ['#aaaaff', '#00009f'] } // Adjust colors as needed
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>
