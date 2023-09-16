@@ -11,11 +11,13 @@ namespace WEBAPP.Controllers
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
         private readonly Database database;
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, Database database)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public AccountController(IWebHostEnvironment _webHostEnvironment,UserManager<User> userManager, SignInManager<User> signInManager, Database database)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.database = database;
+            this._webHostEnvironment = _webHostEnvironment;
         }
         public IActionResult Login()
         {
@@ -35,9 +37,11 @@ namespace WEBAPP.Controllers
                 if (passwordCheck)
                 {
                     var result = await signInManager.PasswordSignInAsync(user, login.Password, false, false);
+
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index","home");
+                       
+                        return RedirectToAction("Profile", "User", new { id = user.Id });
                     }
                 }
                 ViewData["error"] = "wrong password";
@@ -66,14 +70,14 @@ namespace WEBAPP.Controllers
                 return View(register);
             }
             var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(register.image.FileName);
-            var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "profiles", uniqueFileName);
+            var uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "profiles", uniqueFileName);
             var newuser = new User()
             {
                 Email = register.Email,
                 UserName=register.Username,
                 Gender=register.Gender,
                 Nationality=register.Nationality,
-                Image_Path=uploadPath
+                Image_Path="~/profiles/"+uniqueFileName
             };
             var newuserregister= await userManager.CreateAsync(newuser,register.Password);
             if (newuserregister.Succeeded)

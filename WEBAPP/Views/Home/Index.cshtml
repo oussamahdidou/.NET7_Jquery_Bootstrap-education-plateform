@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims;
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -71,9 +73,19 @@
                 <h1>BEST ONLINE </h1>
                 <h1> LEARNING SYSTEM</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus illo veniam eum!</p>
-                <a class="button py-2 px-3" href="#">
-                    <span class="button-text pe-1">Discover</span><i class="fa-solid fa-arrow-right"> </i>
-                </a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    <a class="button py-2 px-3" asp-action="Profile" asp-controller="User" asp-route-id="@userId">
+                        <span class="button-text pe-1">Discover</span><i class="fa-solid fa-arrow-right"> </i>
+                    </a>
+                }
+                else
+                {
+                    <a class="button py-2 px-3" asp-action="Login" asp-controller="Account" >
+                        <span class="button-text pe-1">Discover</span><i class="fa-solid fa-arrow-right"> </i>
+                    </a>
+                }
             </div>
         </div>
 

@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Courses\" />
-    <Folder Include="profiles\" />
-    <Folder Include="Projects\" />
+    <Folder Include="wwwroot\courses\" />
+    <Folder Include="wwwroot\projects\" />
+    <Folder Include="wwwroot\profiles\" />
   </ItemGroup>
 
 </Project>

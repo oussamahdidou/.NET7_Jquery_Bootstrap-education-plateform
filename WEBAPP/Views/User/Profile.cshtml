@@ -1,0 +1,354 @@
+﻿@using System.Security.Claims;
+@using WEBAPP.VModels;
+@model ProfileVM
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+    <link rel="stylesheet" href="~/css/Profile.css">
+    <!-- font awesome cdn link  -->
+    <style>
+        header {
+            font-size: 20px;
+            color: rgba(0,0,0,0.5);
+        }
+
+        .notifications-container{
+           height:250px;
+            overflow-y:scroll;
+            
+        }
+        /* For the track (the bar itself) */
+        ::-webkit-scrollbar {
+            width: 10px; /* Adjust the width as needed */
+        }
+
+        /* For the thumb (the draggable part) */
+        ::-webkit-scrollbar-thumb {
+            background: #888; /* Change the color */
+        }
+
+            /* For the track when the thumb is hovering */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555; /* Change the color */
+            }
+        /* For the track (the bar itself) */
+        scrollbar-width: thin; /* or auto */
+        scrollbar-color: #888 #ccc; /* Change the colors */
+
+
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="header container-fluid ">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Account" asp-action="Logout">Nav<span style="color: #10a84d;">bar</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto">
+                        @{
+                            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                        }
+
+                        <a class="nav-link" asp-action="Profile" asp-controller="User" asp-route-id="@userId">Profile</a>
+                        <a class="nav-link" asp-action="Index" asp-controller="Application">Projects</a>
+                        <a class="nav-link" asp-action="Index" asp-controller="Document">Library</a>
+                        <a class="nav-link" asp-action="Index" asp-controller="User">Users</a>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+    @if (Model.HisAccount)
+    {
+        <header class="container-fluid d-flex justify-content-between py-3 px-2">
+            <h1 class="navbar-brand" href="#">Nav<span style="color: #10a84d;">bar</span></h1>
+
+            <a class=" mx-3" href="#">
+                <span class="notice">
+                    <i class="fa fa-bell"></i>
+
+                    <i class="fa-solid fa-circle fa-beat" style="color: #e00000; display: @(Model.NmbrMessages==0 ? "none; ":  "block; ")font-size: 10px; position: absolute;"></i>
+
+                    <span class="notificationsCount">@Model.NmbrMessages new notifications</span>
+                <div class="notifications-container  pt-3">
+                    <p>Notification</p>
+                        
+                
+
+                   <ul class="notifications">
+
+                   </ul>
+                   
+
+                </div>
+            </span>
+        </a>
+        </header>
+    }
+    <section class=" gradient-custom-2 container-fluid">
+        <div class=" py-5 h-100 ">
+            <div class="h-100 ">
+                <div class="">
+                    <div class="card mx-auto ">
+                        <div class="rounded-top text-white d-flex flex-row"
+                             style="background-color: #000; height:200px;">
+                            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                                <img src="@Url.Content(Model.ProfileImage)"
+                                     alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                                     style="width: 150px; z-index: 1">
+                                <!--                                <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                                    style="z-index: 1;">
+                                    Edit profile
+                                </button>-->
+                            </div>
+                            <div class="ms-3" style="margin-top: 130px;">
+                                <h5>@Model.Name</h5>
+                                <p>@Model.Nationality</p>
+                            </div>
+                        </div>
+                        <div class="p-4 text-black" style="background-color: #f8f9fa;">
+                            <div class="d-flex p-2 align-items-center flex-md-row flex-column ">
+                                <div class="mx-auto">
+                                    @if(!Model.HisAccount){
+                                        <a type="button" class=" follow py-2 px-5" id="@Model.ProfileId">
+                                            @if (Model.FollowStatus)
+                                            {
+                                       
+                                                    @("Follow")
+                                         
+                                            }
+                                            else
+                                            {
+                                                @("Unfollow")
+                                            }
+
+                                    </a>
+                                    }
+                                    else{
+                                    <a type="button" class=" follow py-2 px-5">
+                                        Edit
+                                    </a>
+                                    }
+                                </div>
+
+                                <div class="d-flex justify-content-center text-center py-3 py-md-0 mx-auto">
+                                    <div>
+                                        <p class="mb-1 h5" >@Model.postCount</p>
+                                        <p class="small text-muted mb-0">Post</p>
+                                    </div>
+                                    <div class="px-md-5 px-2 ">
+                                        <p class="mb-1 h5" id="followers">@Model.following</p>
+                                        <p class="small text-muted mb-0">Followers</p>
+                                    </div>
+                                    <div>
+                                        <p class="mb-1 h5" id="following">@Model.followers</p>
+                                        <p class="small text-muted mb-0">Following</p>
+                                    </div>
+                                </div>
+                                <div class="mx-auto">
+                                    <a type="button" class=" follow py-2 px-5">
+                                        Projects
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="profil-container p-5">
+            <div class="profil row container mx-auto ps-5">
+                <div class="col-lg-3">
+                    <div class="profil-img py-5 ps-5">
+                        <img src="../home/img/collaborative.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-4 p-0 pt-2 ">
+                    <div class="profil-information pt-5">
+                        <div class="title ">
+                            <h2>Oussama Hdidou</h2>
+                            <p class="mb-0">Software Engineer</p>
+                        </div>
+
+                        <div class="buttons d-flex justify-content-start align-items-center pt-4">
+                            <a href="#" class=" edit p-2 rounded me-3">Edit Profile</a>
+                            <a href="#" class=" edit p-2 rounded ">Edit Profile</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4  p-0  ">
+                    <div class="user-information pt-5">
+                        <p><b>Nationality:</b> Morocco</p>
+                        <p><b>Gender:</b> Male</p>
+                        <p><b>Age: </b> 20 Years.</p>
+                        <p>
+                            <b>bio:</b>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, esse?
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="container stats-container row mt-3 mx-auto">
+                <div class=" col-lg-3">
+                    <div class="stats-child py-3 p-2">
+                        <h3>Average Rate:</h3>
+                        <h4>4.5/5 <span class="fa fa-star checked"></span></h4>
+                    </div>
+
+                </div>
+                <div class="col-lg-6  ">
+                    <div class="stats-child p-3  d-flex justify-content-center align-items-center follow">
+                        <div class=" stats me-5">
+                            <h1 class="m-0">20</h1>
+                            <p class="m-0">post</p>
+                        </div>
+                        <div class="stats me-5">
+                            <h1 class="m-0">125</h1>
+                            <p class="m-0">Followers</p>
+                        </div>
+                        <div class="stats">
+                            <h1 class="m-0">200</h1>
+                            <p class="m-0">Following</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-lg-3">
+                    <div class="stats-child py-3 p-2">
+                        <h3>Average Rate:</h3>
+                        <h4>4.5/5 <span class="fa fa-star checked"></span></h4>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    -->
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+    @Html.Raw("<script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js' integrity='sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3' crossorigin='anonymous'></script>")
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".follow").click(function () {
+                var item = $(this).attr("id");
+
+                var clickedContainer = $(this); // Store a reference to the clicked container
+
+                $.ajax({
+                    url: '/User/Follow', // Replace with your controller and action route
+                    method: 'POST',
+                    data: { number: item }, // Send the number as a parameter
+                    success: function (result) {
+                        clickedContainer.text(result.buttonStatus);
+                        $("#following").text(result.followers);
+                        $("#followers").text(result.following)
+
+
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
+   
+
+            // Function to execute after 5 seconds
+   
+            
+
+
+
+
+
+        });
+        $(document).ready(function () {
+         
+            function executeFunction() {
+                $.ajax({
+                    url: '/User/Checknotificationsupdate', 
+                    method: 'Get',
+                    success: function (result) 
+                    {
+                        console.log(result);
+                        console.log(result + " new notifications");
+                        $(".notificationsCount").text(result+" new notifications");
+                        if(result!= 0)
+                        {
+                            $(".fa-solid.fa-circle.fa-beat").show();
+                        }
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+
+            }
+            let timer = setInterval(function () {
+                executeFunction();
+            }, 2000);
+            $(".fa-bell").click(function () {
+                
+                $.ajax({
+                    url: '/User/Notification', // Replace with your controller and action route
+                    method: 'Get',
+                     // Send the number as a parameter
+                    success: function (result) {
+                        $(".fa-solid.fa-circle.fa-beat").hide();
+                        $(".notificationsCount").text("0 new notifications");
+                        console.log(result);
+                        $(".notifications").empty();
+                        $.each(result, function (index, notification) {
+                            // Create a new list item for each object
+                            var listItem = $('<li>');
+                            listItem.addClass("notification p-3");
+                            var heading = $('<h5>').text(notification.title);
+                            var paragraph = $('<h6>').text(notification.message);
+                            var date = $('<p>').text(notification.eventTime);
+                            listItem.append(heading, paragraph,date);
+
+                            // Prepend the list item to the beginning of the ul
+                            $(".notifications").append(listItem);
+                        });
+                        $(".notifications-container").toggle();
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

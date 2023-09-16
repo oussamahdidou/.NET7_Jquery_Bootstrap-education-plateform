@@ -234,9 +234,6 @@ namespace WEBAPP.Migrations
                     b.Property<int>("Id_cource")
                         .HasColumnType("int");
 
-                    b.Property<int>("course_rating")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("CoursesRating");
@@ -337,9 +334,6 @@ namespace WEBAPP.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Id_project")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Project_rating")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

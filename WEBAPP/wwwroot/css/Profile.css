@@ -1,0 +1,109 @@
+﻿/*header*/
+.header {
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+    color: #000;
+}
+/*profil-container*/
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fbc2eb;
+    height: 100%;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient( to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1) );
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient( to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1) );
+}
+
+.card {
+    
+}
+
+.notice {
+    position: relative;
+}
+
+.fa-bell {
+    cursor: pointer;
+}
+
+.fa-circle {
+    top: 0;
+    left: 8px;
+}
+
+.notifications-container {
+    display: none;
+    color: #000;
+    background-color: #fff;
+    position: absolute;
+    width: 300px;
+    z-index: 2;
+    top: 100%;
+    right: -8px;
+    text-align: center;
+    box-shadow: 0 3px 3px 3px rgba(148, 148, 148, 0.5);
+    height: 150px;
+}
+
+.notifications {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.notifications-container p {
+    font-size: 18px;
+    
+}
+
+.notification {
+    text-align: start;
+    cursor: pointer;
+}
+
+    .notification:hover {
+        background-color: #f1f1ff;
+    }
+
+.notifications h5,
+.notifications p {
+    margin: 0;
+}
+
+.nav-link {
+    color: #000000;
+    font-size: 20px;
+}
+
+.follow {
+    background-color: #10a84d;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+    .follow:hover {
+        background-color: #10a84d;
+        color: #fff;
+    }
+
+html,
+body {
+    height: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+header {
+    font-size: 20px;
+    color: rgba(0,0,0,0.5);
+}

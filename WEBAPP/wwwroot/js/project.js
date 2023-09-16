@@ -1,25 +1,11 @@
-﻿function rateItem(star, itemIndex, rating) {
-    var stars = document
-        .querySelectorAll(".rate")
-    [itemIndex - 1].querySelectorAll(".fa-star");
-
-    for (var i = 0; i < stars.length; i++) {
-        if (i < rating) {
-            stars[i].classList.add("checked");
-            stars[i].classList.remove("unchecked");
-        } else {
-            stars[i].classList.remove("checked");
-            stars[i].classList.add("unchecked");
-        }
-    }
-}
+﻿
 //Search Algorithmes
 $(document).ready(function () {
     // Attach an input event to the filter input
     $("#search").on("input", function () {
         var filterText = $(this).val().toLowerCase();
 
-        $(".cours").each(function () {
+        $(".cours-container").each(function () {
             var $course = $(this);
             var courseTitle = $course.find("h4").text().toLowerCase();
             var courseDescription = $course.find("p").text().toLowerCase();
@@ -41,7 +27,7 @@ $(document).ready(function () {
 function notfound() {
     var allHidden = true; // Assume all elements are hidden initially
 
-    $(".cours").each(function () {
+    $(".cours-container").each(function () {
         var element = $(this);
 
         if (element.css("display") !== "none") {

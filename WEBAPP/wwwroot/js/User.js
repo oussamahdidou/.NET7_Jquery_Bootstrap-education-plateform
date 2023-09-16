@@ -4,7 +4,7 @@ $(document).ready(function () {
     $("#search").on("input", function () {
         var filterText = $(this).val().toLowerCase();
 
-        $(".cours").each(function () {
+        $(".cours-container").each(function () {
             var $course = $(this);
             var courseTitle = $course.find("h4").text().toLowerCase();
             var courseDescription = $course.find("p").text().toLowerCase();

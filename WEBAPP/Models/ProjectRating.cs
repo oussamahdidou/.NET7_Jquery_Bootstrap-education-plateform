@@ -8,6 +8,5 @@ namespace WEBAPP.Models
         public int Id { get; set; }
         public int Id_project { get; set; }
         public string Id_User { get; set; }
-       public int Project_rating { get; set;}
     }
 }
