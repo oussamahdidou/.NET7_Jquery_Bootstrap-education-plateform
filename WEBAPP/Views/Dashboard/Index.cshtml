@@ -47,7 +47,7 @@
     </section>
     <section class="container-fluid admin-header">
         <nav class="container admin-tasks p-1">
-            <span class="admin "><img src="@Model.image" alt="" class="admin-image"> @Model.username </span>
+            <span class="admin "><img src="@Url.Content(Model.image)" alt="" class="admin-image"> @Model.username </span>
             <span class="notice">
                 <i class="fa fa-bell"></i>
                 <i class="fa-solid fa-circle fa-beat" style="color: #e00000; font-size: 10px; position: absolute;"></i>
@@ -199,23 +199,52 @@
     <script src="js/dashboard.js"></script>
 
     <script>
+        // $.ajax({
+        //     url: '/Dahboard/DashboardData', // Replace with your controller and action route
+        //     method: '',
+        //     data: { number: item }, // Send the number as a parameter
+        //     success: function (result) {
+        //         const Genders = result.map(obj => obj.gender);
+        //         const Counts = result.map(obj => obj.count);
+
+        //         console.log(Genders); // Output: ['Alice', 'Bob', 'Charlie']
+
+        //     },
+        //     error: function (error) {
+        //         console.log(error.status);
+
+        //     }
+        // });
         document.addEventListener('DOMContentLoaded', function () {
-            // Fetch data from ASP.NET Core API here...
 
-            // Sample data for demonstration purposes
-            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
-            var values = [150, 220, 120, 180, 280, 240];
+            // Fetch data from the backend API
+            fetch('/Dashboard/DashboardData') // Replace '/api/data' with the actual API endpoint URL
+                .then(response => response.json())
+                .then(data => {
+                    // Assuming the backend API returns an object with 'months' and 'values' properties
+                    var _genders = data.gender;
+                    var _Projects = data.result;
+                    const genders = _genders.map(obj => obj.gender);
+                    const counts = _genders.map(obj => obj.count);
+                    console.log(_genders);
+                    console.log(_Projects);
+                    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+                    var values = [150, 220, 120, 180, 280, 240];
 
-            // Create and render the charts
-            var lineChartCanvas = document.getElementById('lineChart');
-            var barChartCanvas = document.getElementById('barChart');
-            var pieChartCanvas = document.getElementById('pieChart');
-            var doughnutChartCanvas = document.getElementById('doughnutChart');
+                    // Create and render the charts
+                    var lineChartCanvas = document.getElementById('lineChart');
+                    var barChartCanvas = document.getElementById('barChart');
+                    var pieChartCanvas = document.getElementById('pieChart');
+                    var doughnutChartCanvas = document.getElementById('doughnutChart');
 
-            var lineChart = createLineChart(lineChartCanvas, months, values);
-            var barChart = createBarChart(barChartCanvas, months, values);
-            var pieChart = createPieChart(pieChartCanvas, months, values);
-            var doughnutChart = createDoughnutChart(doughnutChartCanvas, months, values);
+                    var lineChart = createLineChart(lineChartCanvas, _Projects.map(obj => obj.month), _Projects.map(obj => obj.rowCount));
+                    var barChart = createBarChart(barChartCanvas, data.usersapp.map(obj => obj.user), data.usersapp.map(obj => obj.applicationcount));
+                    var pieChart = createPieChart(pieChartCanvas, genders, counts);
+                    var doughnutChart = createDoughnutChart(doughnutChartCanvas, data.response.map(obj => obj.name), data.response.map(obj => obj.likesnumber));
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
 
             // Resize charts when window is resized
             window.addEventListener('resize', function () {
@@ -224,90 +253,92 @@
                 pieChart.resize();
                 doughnutChart.resize();
             });
-        });
 
-        // Create line chart
-        function createLineChart(canvas, labels, data) {
-            return new Chart(canvas, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Monthly Performance',
-                        data: data,
-                        borderColor: '#007bff',
-                        fill: false,
-                        tension: 0.4
-                    }]
-                },
-                options: {
-                    responsive: true
-                }
-            });
-        }
+            // Create line chart
+            function createLineChart(canvas, labels, data) {
+                return new Chart(canvas, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Monthly Performance',
+                            data: data,
+                            borderColor: '#007bff',
+                            fill: false,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true
+                    }
+                });
+            }
 
-        // Create bar chart
-        function createBarChart(canvas, labels, data) {
-            return new Chart(canvas, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Monthly Distribution',
-                        data: data,
-                        backgroundColor: '#28a745'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    barPercentage: 0.6, // Adjust as needed for narrower bars
-                    categoryPercentage: 0.7, // Adjust as needed for narrower bars
-                    borderRadius: 10,
-                    borderRadius: 25,
-                    scales: {
-                        y: {
-                            beginAtZero: true
+            // Create bar chart
+            function createBarChart(canvas, labels, data) {
+                return new Chart(canvas, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Monthly Distribution',
+                            data: data,
+                            backgroundColor: '#28a745'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        barPercentage: 0.6, // Adjust as needed for narrower bars
+                        categoryPercentage: 0.7, // Adjust as needed for narrower bars
+                        borderRadius: 10,
+                        borderRadius: 25,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
                         }
                     }
-                }
-            });
-        }
+                });
+            }
 
-        // Create pie chart
-        function createPieChart(canvas, labels, data) {
-            return new Chart(canvas, {
-                type: 'pie',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Distribution',
-                        data: data,
-                        backgroundColor: ['#f39c12', '#d35400', '#e74c3c', '#3498db', '#27ae60', '#8e44ad']
-                    }]
-                },
-                options: {
-                    responsive: true
-                }
-            });
-        }
+            // Create pie chart
+            function createPieChart(canvas, labels, data) {
+                return new Chart(canvas, {
+                    type: 'pie',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Distribution',
+                            data: data,
+                            backgroundColor: ['#FFC0CB', '#0000FF']
+                        }]
+                    },
+                    options: {
+                        responsive: true
+                    }
+                });
+            }
 
-        // Create doughnut chart
-        function createDoughnutChart(canvas, labels, data) {
-            return new Chart(canvas, {
-                type: 'doughnut',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Distribution',
-                        data: data,
-                        backgroundColor: ['#f39c12', '#d35400', '#e74c3c', '#3498db', '#27ae60', '#8e44ad']
-                    }]
-                },
-                options: {
-                    responsive: true
-                }
-            });
-        }
+            // Create doughnut chart
+            function createDoughnutChart(canvas, labels, data) {
+                return new Chart(canvas, {
+                    type: 'doughnut',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Distribution',
+                            data: data,
+                            backgroundColor: ['#f39c12', '#d35400', '#e74c3c', '#3498db', '#27ae60', '#8e44ad']
+                        }]
+                    },
+                    options: {
+                        responsive: true
+                    }
+                });
+            }
+
+        });
+
         // Load the Google Charts library
         // Access the data from ViewBag and serialize it to JSON
             // Access data from ViewBag and assign it to a JavaScript variable

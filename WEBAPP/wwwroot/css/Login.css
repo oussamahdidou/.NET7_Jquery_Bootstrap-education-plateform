@@ -1,46 +1,25 @@
 ﻿.form_main {
-    width: 220px;
+    width: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgb(255, 255, 255);
     padding: 30px 30px 30px 30px;
+    border-radius: 30px;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
-    position: relative;
-    overflow: hidden;
-    height: 300px;
-
 }
-body,html{
-    height:100%;
-
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-body{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-    .form_main::before {
-        position: absolute;
-        content: "";
-        width: 500px;
-        height: 500px;
-        background-color: rgb(209, 193, 255);
-        transform: rotate(45deg);
-        left: -180px;
-        bottom: 30px;
-        z-index: 1;
-        border-radius: 30px;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.082);
-    }
-
 .heading {
-    font-size: 2em;
+    font-size: 2.5em;
     color: #2e2e2e;
     font-weight: 700;
-    margin: 5px 0 10px 0;
-    z-index: 2;
+    margin: 15px 0 30px 0;
 }
 
 .inputContainer {
@@ -49,20 +28,22 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
 }
 
 .inputIcon {
     position: absolute;
-    left: 3px;
+    left: 10px;
 }
+.form{
 
+}
 .inputField {
     width: 100%;
-    height: 30px;
+    height: 40px;
     background-color: transparent;
     border: none;
     border-bottom: 2px solid rgb(173, 173, 173);
+    border-radius: 30px;
     margin: 10px 0;
     color: black;
     font-size: .8em;
@@ -83,30 +64,61 @@ body{
     }
 
 #button {
-    z-index: 2;
     position: relative;
     width: 100%;
-    border: none;
-    background-color: rgb(162, 104, 255);
-    height: 30px;
+    border: 2px solid #8000ff;
+    background-color: #8000ff;
+    height: 40px;
     color: white;
     font-size: .8em;
     font-weight: 500;
     letter-spacing: 1px;
+    border-radius: 30px;
     margin: 10px;
     cursor: pointer;
+    overflow: hidden;
 }
 
-    #button:hover {
-        background-color: rgb(126, 84, 255);
+    #button::after {
+        content: "";
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.253);
+        height: 100%;
+        width: 150px;
+        top: 0;
+        left: -200px;
+        border-bottom-right-radius: 100px;
+        border-top-left-radius: 100px;
+        filter: blur(10px);
+        transition-duration: .5s;
     }
 
-.forgotLink {
-    z-index: 2;
-    font-size: .7em;
-    font-weight: 500;
-    color: rgb(44, 24, 128);
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 20px;
+    #button:hover::after {
+        transform: translateX(600px);
+        transition-duration: .5s;
+    }
+
+.signupContainer {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
+
+    .signupContainer p {
+        font-size: .9em;
+        font-weight: 500;
+        color: black;
+    }
+
+    .signupContainer a {
+        font-size: .7em;
+        font-weight: 500;
+        background-color: #2e2e2e;
+        color: white;
+        text-decoration: none;
+        padding: 8px 15px;
+        border-radius: 20px;
+    }

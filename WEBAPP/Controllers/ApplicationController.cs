@@ -7,7 +7,7 @@ using WEBAPP.VModels;
 
 namespace WEBAPP.Controllers
 {
-    [Authorize]
+    
     public class ApplicationController : Controller
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
@@ -24,8 +24,8 @@ namespace WEBAPP.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var currentUser = await userManager.GetUserAsync(User);
-            string userId = currentUser.Id;
+            var currentUser = User.Identity.IsAuthenticated ? await userManager.GetUserAsync(User) : null;
+            string? userId = currentUser?.Id;
 
             var courses = await database.Applications.ToListAsync(); // Retrieve courses asynchronously
             var ratings = await database.ProjectsRating.ToListAsync(); // Retrieve ratings asynchronously
@@ -49,6 +49,7 @@ namespace WEBAPP.Controllers
 
             return View(response);
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Like(int number)
         {
@@ -93,6 +94,7 @@ namespace WEBAPP.Controllers
 
             return Json(count);
         }
+        [Authorize]
         [HttpPost]
         public IActionResult Delete(int number)
         {
@@ -119,12 +121,14 @@ namespace WEBAPP.Controllers
             }
 
         }
+        [Authorize]
         public IActionResult Create()
         {
             var reponse = new CreateProjectVM();
             return View(reponse);
         }
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create(CreateProjectVM model)
         {
             var currentUser = await userManager.GetUserAsync(User);

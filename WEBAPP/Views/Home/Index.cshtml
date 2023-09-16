@@ -57,10 +57,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-link" href="#">Home</a>
-                        <a class="nav-link" href="#">Features</a>
-                        <a class="nav-link" href="#">Pricing</a>
-                        <a class="nav-link" href="#">Disabled</a>
+                        <a class="nav-link" asp-controller="Home"asp-action="Index">Home</a>
+                        <a class="nav-link" asp-controller="Document" asp-action="Index">Library</a>
+                        <a class="nav-link" asp-controller="Application" asp-action="Index">Projects</a>
+                        <a class="nav-link" asp-controller="User" asp-action="Index">Users</a>
                     </div>
                 </div>
             </div>
@@ -250,7 +250,7 @@
             </video>
         </div>
     </section>
-    <section class="container-fluid contact p-5 my-4">
+    <section class="container-fluid contact p-md-5 p-2 my-4">
         <div class="row">
             <div class="col-lg-6">
                 <div class="container  contact-form p-5">

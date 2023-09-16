@@ -10,7 +10,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.IO;
 namespace WEBAPP.Controllers
 {
-    [Authorize]
+   
     public class DocumentController : Controller
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
@@ -27,8 +27,9 @@ namespace WEBAPP.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var currentUser = await userManager.GetUserAsync(User);
-            string userId = currentUser.Id;
+            var currentUser = User.Identity.IsAuthenticated ? await userManager.GetUserAsync(User) : null;
+            string? userId = currentUser?.Id;
+
 
             var courses = await database.Courses.ToListAsync(); // Retrieve courses asynchronously
             var ratings = await database.CoursesRating.ToListAsync(); // Retrieve ratings asynchronously
@@ -51,7 +52,7 @@ namespace WEBAPP.Controllers
 
             return View(response);
         }
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Like(int number)
         {
@@ -86,6 +87,7 @@ namespace WEBAPP.Controllers
 
             return Json(count);
         }
+        [Authorize]
         [HttpPost]
         public IActionResult Delete(int number) {
             var existingItem = database.Courses
@@ -117,6 +119,7 @@ namespace WEBAPP.Controllers
             var reponse = new CreateCourseVM();
             return View(reponse);
         }
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> Create(CreateCourseVM model)
         {

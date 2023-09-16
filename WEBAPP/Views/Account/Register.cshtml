@@ -1,7 +1,5 @@
 ﻿@using WEBAPP.VModels
-@{
-    Layout = "_Layout"; // Use the "_Layout.cshtml" layout
-}
+
 
 @model RegisterVM
 @*
@@ -9,59 +7,187 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-}    <div class="container mt-5 p-3">
-    <h2>Registration Form</h2>
-    @if (ViewData["error"]!=null)
-    {
-        <div class="alert alert-danger " id="error"  role="alert">
-                @ViewData["error"]
-        </div>
-    }
+}    
+<!DOCTYPE html>
+<html lang="en">
 
-    <form asp-action="Register" asp-controller="Account" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" class="form-control" id="username" asp-for="Username" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" asp-for="Email" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" asp-for="Password" required>
-        </div>
-        <div class="form-group">
-            <label for="confirmPassword">Confirm Password:</label>
-            <input type="password" class="form-control" id="confirmPassword" asp-for="ConfirmedPassword" required>
-        </div>
-        <div class="form-group">
-            <label>Gender:</label>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" asp-for="Gender" id="male" value="Male" required>
-                <label class="form-check-label" for="male">Male</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" asp-for="Gender" id="female" value="Female" checked>
-                <label class="form-check-label" for="female">Female</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="nationality">Nationality:</label>
-            <select class="form-control" id="nationality" asp-for="Nationality" required>
-                <option value="Morocco">Morocco</option>
-                <option value="Tunisia">Tunisia</option>
-                <option value="Algeria">Algeria</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label asp-for="image">Profile Image</label>
-            <input type="file" asp-for="image" accept=".JPEG, .JPG, .PNG, .JFIF,.jpeg, .jpg, .png, .jfif">
-        </div>
-        <button type="submit" class="btn btn-primary m-3">Register</button>
-    </form>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height:100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .container {
+            position: relative;
+            max-width: 550px;
+            width: 100%;
+            background: #FCEDDA;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
 
-<!-- Include Bootstrap JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            .container header {
+                font-size: 1.2rem;
+                color: #000;
+                font-weight: 600;
+                text-align: center;
+            }
+
+            .container .form {
+                margin-top: 15px;
+            }
+
+        .form .input-box {
+            width: 90%;
+            margin-top: 10px;
+        }
+
+        .input-box label {
+            color: #000;
+        }
+
+        .form :where(.input-box input, .select-box) {
+            position: relative;
+            height: 35px;
+            width: 100%;
+            outline: none;
+            font-size: 1rem;
+            color: #808080;
+            margin-top: 5px;
+            border: 1px solid #EE4E34;
+            border-radius: 6px;
+            padding: 0 15px;
+            background: #FCEDDA;
+        }
+
+        .input-box input:focus {
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .form .column {
+            display: flex;
+            column-gap: 15px;
+        }
+
+        .form .gender-box {
+            margin-top: 10px;
+        }
+
+        .form :where(.gender-option, .gender) {
+            display: flex;
+            align-items: center;
+            column-gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .form .gender {
+            column-gap: 5px;
+        }
+
+        .gender input {
+            accent-color: #EE4E34;
+        }
+
+        .form :where(.gender input, .gender label) {
+            cursor: pointer;
+        }
+
+        .gender label {
+            color: #000;
+        }
+
+        .address :where(input, .select-box) {
+            margin-top: 10px;
+        }
+
+        .select-box select {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            border: none;
+            color: #808080;
+            font-size: 1rem;
+            background: #FCEDDA;
+        }
+
+        .form button {
+            height: 40px;
+            width: 100%;
+            color: #000;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-top: 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #EE4E34;
+        }
+
+            .form button:hover {
+                background: #EE3E34;
+            }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <header>Registration Form</header>
+        <form class="form" asp-controller="Account" asp-action="Register">
+            <div class="input-box">
+                <label>Username</label>
+                <input required placeholder="Username" type="text" asp-for="Username">
+            </div>
+            <div class="input-box">
+                <label>Email</label>
+                <input required="" placeholder="E-mail" type="text" asp-for="Email">
+            </div>
+            <div class="input-box">
+                <label>Password</label>
+                <input required="" placeholder="Password" type="text" asp-for="Password">
+            </div>
+            <div class="input-box">
+                <label>Confirm Password</label>
+                <input required="" placeholder="Confirm Password" type="text" asp-for="ConfirmedPassword">
+            </div>
+            <div class="gender-box">
+                <label>Gender</label>
+                <div class="gender-option">
+                    <div class="gender">
+                        <input checked="" value="Male" id="check-male" type="radio" asp-for="Gender">
+                        <label for="check-male">Male</label>
+                    </div>
+                    <div class="gender">
+                        <input value="Female" id="check-female" type="radio" asp-for="Gender">
+                        <label for="check-female">Female</label>
+                    </div>
+
+                </div>
+            </div>
+            <div class="input-box address">
+
+                <div class="column">
+                    <div class="select-box">
+                        <select asp-for="Nationality">
+                            <option hidden="">Country</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Japan">Japan</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+            <button>Submit</button>
+        </form>
+    </section>
+</body>
+
+</html>

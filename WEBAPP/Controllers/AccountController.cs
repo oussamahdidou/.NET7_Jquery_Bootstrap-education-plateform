@@ -61,6 +61,7 @@ namespace WEBAPP.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewData["error"] = "form not valid";
                 return View(register);
             }
             var user= await userManager.FindByEmailAsync(register.Email);
@@ -69,26 +70,29 @@ namespace WEBAPP.Controllers
                 ViewData["error"] = "user exist deja";
                 return View(register);
             }
-            var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(register.image.FileName);
-            var uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "profiles", uniqueFileName);
+            //var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(register.image.FileName);
+            //var uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "profiles", uniqueFileName);
+            //Image_Path="~/profiles/"+uniqueFileName
             var newuser = new User()
             {
                 Email = register.Email,
                 UserName=register.Username,
                 Gender=register.Gender,
                 Nationality=register.Nationality,
-                Image_Path="~/profiles/"+uniqueFileName
+                Image_Path= "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
             };
             var newuserregister= await userManager.CreateAsync(newuser,register.Password);
             if (newuserregister.Succeeded)
             {
                 await userManager.AddToRoleAsync(newuser, UserRoles.Student);
+                return RedirectToAction("Index", "Home");
             }
-            using (var stream = new FileStream(uploadPath, FileMode.Create))
-            {
-                await register.image.CopyToAsync(stream);
-            }
-            return RedirectToAction("Index","Home");
+            //using (var stream = new FileStream(uploadPath, FileMode.Create))
+            //{
+            //    await register.image.CopyToAsync(stream);
+            //}
+            ViewData["error"] = " that passwords contain an uppercase character, lowercase character, a digit, and a non-alphanumeric character. Passwords must be at least six characters long.";
+            return View(register);
         }
         public async Task<IActionResult> Logout()
         {

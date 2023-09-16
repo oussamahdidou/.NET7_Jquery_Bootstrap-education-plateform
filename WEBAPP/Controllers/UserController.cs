@@ -14,8 +14,10 @@ namespace WEBAPP.Controllers
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
         private readonly Data.Database database;
-        public UserController(UserManager<User> userManager, SignInManager<User> signInManager, Data.Database database)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public UserController(IWebHostEnvironment _webHostEnvironment, UserManager<User> userManager, SignInManager<User> signInManager, Data.Database database)
         {
+            this._webHostEnvironment = _webHostEnvironment;
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.database = database;
@@ -133,6 +135,46 @@ namespace WEBAPP.Controllers
            var notificationcount= database.notifications.Count(x=>x.IsRead==false && x.id_target_user==userId);
             database.SaveChanges();
             return Json(notificationcount);
+        }
+        
+        public IActionResult Edit() 
+        {
+            var user = new EditVM();
+            return View(user);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditVM editVM)
+        {
+            var currentUser = await userManager.GetUserAsync(User);
+            string userId = currentUser.Id;
+            string path = currentUser.Image_Path;
+            if (editVM == null)
+            {
+                return View(editVM);
+            }
+            var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(editVM.image.FileName);
+            var uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "profiles", uniqueFileName);
+            var Image_Path = "~/profiles/" + uniqueFileName;
+            var usertoedit =await userManager.FindByIdAsync(userId);
+            usertoedit.UserName = editVM.Name;
+            usertoedit.Image_Path =Image_Path;
+            
+          
+            using (var stream = new FileStream(uploadPath, FileMode.Create))
+            {
+                await editVM.image.CopyToAsync(stream);
+            }
+            await userManager.UpdateAsync(usertoedit);
+            // Get just the file name
+            string fileName = Path.GetFileName(path);
+            var deletePath = Path.Combine(_webHostEnvironment.WebRootPath, "profiles", fileName);
+            // Item exists, so delete it
+            if (System.IO.File.Exists(deletePath))
+            {
+                System.IO.File.Delete(deletePath);
+            }
+            return RedirectToAction("Profile", new { id = userId });
+
         }
     }
 }

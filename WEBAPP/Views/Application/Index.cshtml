@@ -151,6 +151,8 @@
             <p class="mb-0">© 2023 Your Website. All Rights Reserved.</p>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="~/js/cources.js"></script>
     <script>
@@ -171,7 +173,27 @@
                         clickedContainer.find(".fa-solid.fa-heart").toggleClass("checked unchecked");
                     },
                     error: function (error) {
-                        console.error(error);
+                        console.log(error.status);
+                        if (error.status == 401)
+                        {
+                            Swal.fire({
+                                title: 'Connection',
+                                text: 'you need connection to access to this feature',
+                                icon: 'info',
+                                showCancelButton: true,
+                                confirmButtonText: 'Login',
+                                cancelButtonText: 'Register',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    // Code to execute when "Button 1" is clicked
+                                    window.location.href = 'Account/Login'; // Replace with your desired URL
+                                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                                    // Code to execute when "Button 2" is clicked
+                                    window.location.href = 'Account/Register'; // Replace with your desired URL
+                                }
+                            });
+                        }
+
                     }
                 });
             });
@@ -195,7 +217,13 @@
                     success: function (result) {
                         // Handle the response from the server
                         console.log(result);
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
                         cardbutton.closest(".cours-container").remove();
+
                     },
                     error: function (error) {
                         console.error(error);
