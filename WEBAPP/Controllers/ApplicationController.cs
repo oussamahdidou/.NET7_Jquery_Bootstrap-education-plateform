@@ -166,7 +166,31 @@ namespace WEBAPP.Controllers
             {
                 await model.file.CopyToAsync(stream);
             }
+            var friends = database.Follows.Where(x=>x.id_follower==currentUser.Id);
+            foreach(var friend in friends)
+            {
+                var notification = new Notification()
+                {
+                    id_target_user = friend.id_following,
+                    IsRead = false,
+                    EventTime = DateTime.Now,
+                    Message = currentUser.UserName + " added a new project",
+                    Title = "New Project",
+                };
+                database.notifications.Add(notification);
+               
+            }
+            database.SaveChanges();
+            //var notification = new Notification()
+            //{
+            //    id_target_user = "",
+            //    IsRead=false,
+            //    EventTime = DateTime.Now,
+            //    Message=currentUser.UserName+" added a new project",
+            //    Title="New Project",
 
+
+            //};
             return RedirectToAction("Index", "Application");
 
         }

@@ -327,13 +327,14 @@
                         $(".notificationsCount").text("0 new notifications");
                         console.log(result);
                         $(".notifications").empty();
+                        const options = { month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' };
                         $.each(result, function (index, notification) {
                             // Create a new list item for each object
                             var listItem = $('<li>');
                             listItem.addClass("notification p-3");
                             var heading = $('<h5>').text(notification.title);
                             var paragraph = $('<h6>').text(notification.message);
-                            var date = $('<p>').text(notification.eventTime);
+                            var date = $('<p>').text(new Date(notification.eventTime).toLocaleDateString(undefined, options) );
                             listItem.append(heading, paragraph,date);
 
                             // Prepend the list item to the beginning of the ul

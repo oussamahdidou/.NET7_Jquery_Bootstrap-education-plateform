@@ -22,10 +22,10 @@ namespace WEBAPP.Controllers
             this.signInManager = signInManager;
             this.database = database;
         }
-        public async Task <IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             var users = await userManager.GetUsersInRoleAsync("student");
-            
+
 
             return View(users);
         }
@@ -47,15 +47,15 @@ namespace WEBAPP.Controllers
                 FollowStatus = database.Follows
               .FirstOrDefault(item => item.id_follower == id && item.id_following == userId) == null,
                 NmbrMessages = database.notifications.Count(item => item.id_target_user == id && item.IsRead == false),
-                Notifications = database.notifications.Where(x => x.id_target_user == id ).OrderByDescending(x => x.EventTime).ToList(),
+                Notifications = database.notifications.Where(x => x.id_target_user == id).OrderByDescending(x => x.EventTime).ToList(),
 
             };
             return View(Response);
         }
         [HttpPost]
-        public async Task <IActionResult> Follow(string number)
+        public async Task<IActionResult> Follow(string number)
         {
-            string ButtonStatus="";
+            string ButtonStatus = "";
             var currentUser = await userManager.GetUserAsync(User);
             string userId = currentUser.Id;
             string username = currentUser.UserName;
@@ -74,7 +74,7 @@ namespace WEBAPP.Controllers
                 // Create a new item and add it
                 var newItem = new Follow
                 {
-                    id_follower= number,
+                    id_follower = number,
                     id_following = userId,
                     // Other properties of the item...
                 };
@@ -94,7 +94,7 @@ namespace WEBAPP.Controllers
 
             // Save changes to the database
             database.SaveChanges();
-            
+
 
             return Json(new
             {
@@ -107,23 +107,23 @@ namespace WEBAPP.Controllers
 
         }
         [HttpGet]
-        public async Task<IActionResult> Notification() 
-        { 
+        public async Task<IActionResult> Notification()
+        {
 
 
             var currentUser = await userManager.GetUserAsync(User);
             string userId = currentUser.Id;
             var notifications = database.notifications.Where(x => x.id_target_user == userId);
-            foreach(var notification in notifications)
+            foreach (var notification in notifications)
             {
-                notification.IsRead= true;
-               
+                notification.IsRead = true;
+
             }
             database.SaveChanges();
-             var list = database.notifications.Where(x=> x.id_target_user == userId)
-                .OrderByDescending(x => x.EventTime)
-                .Take(10)
-                .ToList();
+            var list = database.notifications.Where(x => x.id_target_user == userId)
+               .OrderByDescending(x => x.EventTime)
+               .Take(10)
+               .ToList();
             return Json(list);
         }
         [HttpGet]
@@ -132,12 +132,12 @@ namespace WEBAPP.Controllers
             var currentUser = await userManager.GetUserAsync(User);
             string userId = currentUser.Id;
 
-           var notificationcount= database.notifications.Count(x=>x.IsRead==false && x.id_target_user==userId);
+            var notificationcount = database.notifications.Count(x => x.IsRead == false && x.id_target_user == userId);
             database.SaveChanges();
             return Json(notificationcount);
         }
-        
-        public IActionResult Edit() 
+
+        public IActionResult Edit()
         {
             var user = new EditVM();
             return View(user);
@@ -155,11 +155,11 @@ namespace WEBAPP.Controllers
             var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(editVM.image.FileName);
             var uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "profiles", uniqueFileName);
             var Image_Path = "~/profiles/" + uniqueFileName;
-            var usertoedit =await userManager.FindByIdAsync(userId);
+            var usertoedit = await userManager.FindByIdAsync(userId);
             usertoedit.UserName = editVM.Name;
-            usertoedit.Image_Path =Image_Path;
-            
-          
+            usertoedit.Image_Path = Image_Path;
+
+
             using (var stream = new FileStream(uploadPath, FileMode.Create))
             {
                 await editVM.image.CopyToAsync(stream);

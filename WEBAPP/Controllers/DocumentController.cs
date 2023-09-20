@@ -157,7 +157,21 @@ namespace WEBAPP.Controllers
             {
                 await model.file.CopyToAsync(stream);
             }
-
+            var friends = await userManager.GetUsersInRoleAsync("student");
+            foreach (var friend in friends)
+            {
+                var notification = new Notification()
+                {
+                    id_target_user = friend.Id,
+                    IsRead = false,
+                    EventTime = DateTime.Now,
+                    Message = "A new course has been added",
+                    Title = "New Course",
+                };
+                database.notifications.Add(notification);
+                
+            }
+            database.SaveChanges();
             return RedirectToAction("Index","Document");
 
         }

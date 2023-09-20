@@ -30,24 +30,17 @@
         }
 
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
-        .container {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+
 
         .modal {
+            margin: auto auto auto auto;
             display: flex;
             flex-direction: column;
             width: 100%;
-            max-width: 500px;
+            max-width: 800px;
             background-color: #fff;
             box-shadow: 0 15px 30px 0 rgba(0, 125, 171, 0.15);
             border-radius: 10px;
@@ -172,7 +165,7 @@
         .drop-container {
             background-color: #fff;
             position: relative;
-            width: 200px;
+            width: 80%;
             display: flex;
             gap: 10px;
             flex-direction: column;
@@ -229,15 +222,12 @@
                     background: #0d45a5;
                 }
 
-        .form-content {
-            display: flex;
-        }
     </style>
 </head>
 
 <body>
     <form enctype="multipart/form-data" asp-action="Create" asp-controller="Document">
-        <div class="container">
+   
 
             <div class="modal">
                 <div class="modal__header">
@@ -283,7 +273,7 @@
                     <input type="submit" class="button button--primary">Create project</input>
                 </div>
             </div>
-        </div>
+   
     </form>
 </body>
 

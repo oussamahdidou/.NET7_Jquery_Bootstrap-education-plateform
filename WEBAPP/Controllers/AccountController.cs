@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Google.Protobuf.WellKnownTypes;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WEBAPP.Data;
 using WEBAPP.Models;
@@ -85,7 +86,18 @@ namespace WEBAPP.Controllers
             if (newuserregister.Succeeded)
             {
                 await userManager.AddToRoleAsync(newuser, UserRoles.Student);
-                return RedirectToAction("Index", "Home");
+                var result = await signInManager.PasswordSignInAsync(newuser, register.Password, false, false);
+                var notification = new Notification() 
+                {
+                    id_target_user = newuser.Id,
+                    IsRead = false,
+                    EventTime = DateTime.Now,
+                    Message = "Welcome to our community",
+                    Title = "Welcome",
+                };
+                database.notifications.Add(notification);
+                database.SaveChanges();
+                return RedirectToAction("Profile", "User", new { id = newuser.Id });
             }
             //using (var stream = new FileStream(uploadPath, FileMode.Create))
             //{
