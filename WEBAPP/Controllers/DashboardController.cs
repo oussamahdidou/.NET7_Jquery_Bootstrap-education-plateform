@@ -97,6 +97,18 @@ namespace WEBAPP.Controllers
             return Json(new {gender=gender,result=result,response=response,usersapp=usersWithApplications});       
         }
 
+        public async Task<IActionResult> DashboardMap()
+        {
+            var result = database.Users
+            .GroupBy(u => u.Nationality)
+            .Select(g => new
+            {
+                Nationality = g.Key,
+                Count = g.Count()
+            })
+            .ToList();
+            return Json(result);
+        }
 
 
 

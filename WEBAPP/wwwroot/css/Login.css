@@ -14,6 +14,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .heading {
     font-size: 2.5em;

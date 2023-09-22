@@ -45,7 +45,7 @@
     <!-- Bootstrap JavaScript Libraries -->
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container">
-            <a class="navbar-brand" href="#">Nav<span style="color: #ffffff;">bar</span></a>
+            <a class="navbar-brand" href="#">Learn<span style="color: #ffffff;">Hub</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="fa fa-booklse" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -62,14 +62,17 @@
                     <a class="nav-link" asp-action="Index" asp-controller="Application">Projects</a>
                     <a class="nav-link" asp-action="Index" asp-controller="Document">Library</a>
                     <a class="nav-link" asp-action="Index" asp-controller="User">Users</a>
-                    <a class="nav-link mx-3" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                       data-bs-title="Tooltip on bottom" asp-controller="Application" asp-action="Create">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#d1d1d1"
-                             class="bi bi-plus-lg" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                  d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-                        </svg>
-                    </a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="nav-link mx-3" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                           data-bs-title="Tooltip on bottom" asp-controller="Application" asp-action="Create">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#d1d1d1"
+                                 class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                            </svg>
+                        </a>
+                    }
 
                 </div>
             </div>
