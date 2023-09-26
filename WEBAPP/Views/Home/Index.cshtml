@@ -61,6 +61,10 @@
                         <a class="nav-link" asp-controller="Document" asp-action="Index">Library</a>
                         <a class="nav-link" asp-controller="Application" asp-action="Index">Projects</a>
                         <a class="nav-link" asp-controller="User" asp-action="Index">Users</a>
+                        @if(User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                        {
+                            <a class="nav-link" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                        }
                     </div>
                 </div>
             </div>

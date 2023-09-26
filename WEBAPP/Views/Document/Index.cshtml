@@ -55,12 +55,15 @@
                     @{
                         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     }
-
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
+                        <a class="nav-link" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                    }
                     <a class="nav-link" asp-action="Profile" asp-controller="User" asp-route-id="@userId">Profile</a>
                     <a class="nav-link" asp-action="Index" asp-controller="Application">Projects</a>
                     <a class="nav-link" asp-action="Index" asp-controller="Document">Library</a>
                     <a class="nav-link" asp-action="Index" asp-controller="User">Users</a>
-
+               
                     @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
                     {
                         <a class="nav-link mx-3" data-bs-toggle="tooltip" data-bs-placement="bottom"

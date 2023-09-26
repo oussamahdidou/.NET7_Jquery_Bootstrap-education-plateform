@@ -28,7 +28,7 @@
     <section class="header container-fluid ">
         <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container">
-                <a class="navbar-brand" href="#">Learn<span style="color: #ffffff;">Hub</span></a>
+                <a class="navbar-brand" asp-controller="Account" asp-action="Logout">Learn<span style="color: #ffffff;">Hub</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -36,10 +36,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-link" href="#">Home</a>
-                        <a class="nav-link" href="#">Features</a>
-                        <a class="nav-link" href="#">Pricing</a>
-                        <a class="nav-link" href="#">Disabled</a>
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link" asp-controller="Document" asp-action="Index">Library</a>
+                        <a class="nav-link" asp-controller="Application" asp-action="Index">Projects</a>
+                        <a class="nav-link" asp-controller="User" asp-action="Index">Users</a>
+                        <a class="nav-link" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+
                     </div>
                 </div>
             </div>
@@ -310,7 +312,7 @@
                         datasets: [{
                             label: 'Gender Distribution',
                             data: data,
-                            backgroundColor: ['#FFC0CB', '#0000FF']
+                            backgroundColor: ['#FFC0CB', '#AAAAFF']
                         }]
                     },
                     options: {
