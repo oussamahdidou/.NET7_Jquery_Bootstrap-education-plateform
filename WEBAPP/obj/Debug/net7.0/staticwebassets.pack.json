@@ -1,0 +1,405 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\WEBAPP.bundle.scp.css",
+      "PackagePath": "staticwebassets\\WEBAPP.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\courses\\148e1f2c-ce22-4ebb-ac74-5024e7b3f25b.pdf",
+      "PackagePath": "staticwebassets\\courses\\148e1f2c-ce22-4ebb-ac74-5024e7b3f25b.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\courses\\222dacd4-7d85-445d-acf1-60be80643ec7.pdf",
+      "PackagePath": "staticwebassets\\courses\\222dacd4-7d85-445d-acf1-60be80643ec7.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\courses\\469d8a20-6981-471c-be54-68fa2cd229ef.pdf",
+      "PackagePath": "staticwebassets\\courses\\469d8a20-6981-471c-be54-68fa2cd229ef.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\courses\\49af69c8-f663-4683-906d-4361fe05b5d6.pdf",
+      "PackagePath": "staticwebassets\\courses\\49af69c8-f663-4683-906d-4361fe05b5d6.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\courses\\5d6c1bd6-7c4d-44bd-bb7d-55e3a00e38e8.pdf",
+      "PackagePath": "staticwebassets\\courses\\5d6c1bd6-7c4d-44bd-bb7d-55e3a00e38e8.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\courses\\6585cfe9-cc6b-473f-8a75-d949e5dac070.pdf",
+      "PackagePath": "staticwebassets\\courses\\6585cfe9-cc6b-473f-8a75-d949e5dac070.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\courses\\7e0b48d5-2f5e-4c88-8519-883610111e5c.pdf",
+      "PackagePath": "staticwebassets\\courses\\7e0b48d5-2f5e-4c88-8519-883610111e5c.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\courses\\92790e04-2ce4-46d4-aa6d-b4ac84c4a2c5.pdf",
+      "PackagePath": "staticwebassets\\courses\\92790e04-2ce4-46d4-aa6d-b4ac84c4a2c5.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\css\\Profile.css",
+      "PackagePath": "staticwebassets\\css\\Profile.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\css\\cources.css",
+      "PackagePath": "staticwebassets\\css\\cources.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\css\\dashboard.css",
+      "PackagePath": "staticwebassets\\css\\dashboard.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\css\\home.css",
+      "PackagePath": "staticwebassets\\css\\home.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\css\\project.css",
+      "PackagePath": "staticwebassets\\css\\project.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\css\\user.css",
+      "PackagePath": "staticwebassets\\css\\user.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\img\\books.jpg",
+      "PackagePath": "staticwebassets\\img\\books.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\img\\collaborative.jpg",
+      "PackagePath": "staticwebassets\\img\\collaborative.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\img\\library.jpg",
+      "PackagePath": "staticwebassets\\img\\library.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\img\\pexels-pixabay-256559.jpg",
+      "PackagePath": "staticwebassets\\img\\pexels-pixabay-256559.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\img\\project.webp",
+      "PackagePath": "staticwebassets\\img\\project.webp"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\img\\todo.jpg",
+      "PackagePath": "staticwebassets\\img\\todo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\img\\users.jpg",
+      "PackagePath": "staticwebassets\\img\\users.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\js\\User.js",
+      "PackagePath": "staticwebassets\\js\\User.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\js\\cources.js",
+      "PackagePath": "staticwebassets\\js\\cources.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\js\\dashboard.js",
+      "PackagePath": "staticwebassets\\js\\dashboard.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\js\\home.js",
+      "PackagePath": "staticwebassets\\js\\home.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\js\\project.js",
+      "PackagePath": "staticwebassets\\js\\project.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\profiles\\0a3defb5-8d98-4d26-8a99-9b7df6ba1f0f.jpeg",
+      "PackagePath": "staticwebassets\\profiles\\0a3defb5-8d98-4d26-8a99-9b7df6ba1f0f.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\profiles\\302fddc7-5968-4a94-93b5-2bf70b7876d3.JPG",
+      "PackagePath": "staticwebassets\\profiles\\302fddc7-5968-4a94-93b5-2bf70b7876d3.JPG"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\projects\\12c1aa22-51be-4fa9-9666-4b0799b1d190.pdf",
+      "PackagePath": "staticwebassets\\projects\\12c1aa22-51be-4fa9-9666-4b0799b1d190.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\projects\\446729d4-e4a5-4409-b02d-5f3e5fd783a0.pdf",
+      "PackagePath": "staticwebassets\\projects\\446729d4-e4a5-4409-b02d-5f3e5fd783a0.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\projects\\9a51b5d6-6db8-43ba-944b-cb752c33f761.pdf",
+      "PackagePath": "staticwebassets\\projects\\9a51b5d6-6db8-43ba-944b-cb752c33f761.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\projects\\a8edf413-ac74-49a3-926f-22824995eacd.pdf",
+      "PackagePath": "staticwebassets\\projects\\a8edf413-ac74-49a3-926f-22824995eacd.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\projects\\ea18d664-ec45-4626-9a23-f41b6ad15943.pdf",
+      "PackagePath": "staticwebassets\\projects\\ea18d664-ec45-4626-9a23-f41b6ad15943.pdf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\source\\repos\\WEBAPP\\WEBAPP\\wwwroot\\video\\University Promo Video Template (Editable).mp4",
+      "PackagePath": "staticwebassets\\video\\University Promo Video Template (Editable).mp4"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.WEBAPP.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.WEBAPP.props",
+      "PackagePath": "build\\WEBAPP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.WEBAPP.props",
+      "PackagePath": "buildMultiTargeting\\WEBAPP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.WEBAPP.props",
+      "PackagePath": "buildTransitive\\WEBAPP.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
