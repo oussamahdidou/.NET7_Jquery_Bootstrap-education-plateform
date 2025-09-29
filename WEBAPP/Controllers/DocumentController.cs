@@ -10,7 +10,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.IO;
 namespace WEBAPP.Controllers
 {
-   
+
     public class DocumentController : Controller
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
@@ -27,30 +27,22 @@ namespace WEBAPP.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var currentUser = User.Identity.IsAuthenticated ? await userManager.GetUserAsync(User) : null;
+            var currentUser = await userManager.GetUserAsync(User);
             string? userId = currentUser?.Id;
 
 
-            var courses = await database.Courses.ToListAsync(); // Retrieve courses asynchronously
-            var ratings = await database.CoursesRating.ToListAsync(); // Retrieve ratings asynchronously
+            var courses = await database.Courses.Include(x => x.CourseRatings).Select(x => new IndexCourseVM
+            {
+                CoursePath = x.Url,
+                Description = x.Description,
+                IsLiked = x.CourseRatings.Any(x => x.UserId == userId),
+                likesnumber = x.CourseRatings.Count(),
+                Name = x.Name
 
-            var response = courses
-                .GroupJoin(
-                    ratings,
-                    c => c.Id,
-                    l => l.Id_cource,
-                    (course, ratingGroup) => new IndexCourseVM
-                    {
-                        id = course.Id,
-                        Name = course.Name,
-                        Description = course.Description,
-                        CoursePath = course.Url,
-                        IsLiked = ratingGroup.Any(item => item.Id_cource == course.Id && item.Id_User == userId),
-                        likesnumber = ratingGroup.Count() // Count the likes
-                    })
-                .ToList(); // Materialize the result
+            }).ToListAsync();
 
-            return View(response);
+
+            return View(courses);
         }
         [Authorize]
         [HttpPost]
@@ -59,7 +51,7 @@ namespace WEBAPP.Controllers
             var currentUser = await userManager.GetUserAsync(User);
             string userId = currentUser.Id;
             var existingItem = database.CoursesRating
-              .FirstOrDefault(item => item.Id_cource == number && item.Id_User == userId);
+              .FirstOrDefault(item => item.CourseId == number && item.UserId == userId);
 
             if (existingItem != null)
             {
@@ -72,8 +64,8 @@ namespace WEBAPP.Controllers
                 // Create a new item and add it
                 var newItem = new CourseRating
                 {
-                    Id_cource = number,
-                    Id_User = userId,
+                    CourseId = number,
+                    UserId = userId,
                     // Other properties of the item...
                 };
 
@@ -83,26 +75,27 @@ namespace WEBAPP.Controllers
             // Save changes to the database
             database.SaveChanges();
             int count = database.CoursesRating
-           .Count(item => item.Id_cource == number);
+           .Count(item => item.CourseId == number);
 
             return Json(count);
         }
         [Authorize]
         [HttpPost]
-        public IActionResult Delete(int number) {
+        public IActionResult Delete(int number)
+        {
             var existingItem = database.Courses
              .FirstOrDefault(item => item.Id == number);
             if (existingItem != null)
             {
                 var FilePath = existingItem.Url;
-               
+
 
                 // Get just the file name
                 string fileName = Path.GetFileName(FilePath);
                 var deletePath = Path.Combine(_webHostEnvironment.WebRootPath, "courses", fileName);
                 // Item exists, so delete it
                 database.Courses.Remove(existingItem);
-                database.SaveChanges() ;
+                database.SaveChanges();
                 System.IO.File.Delete(deletePath);
                 return Json("item deleted successfully");
             }
@@ -125,13 +118,13 @@ namespace WEBAPP.Controllers
         {
             var currentUser = await userManager.GetUserAsync(User);
 
-          
-            
-                // Access the user's ID
-                string userId = currentUser.Id;
 
-                // Your logic here
-            
+
+            // Access the user's ID
+            string userId = currentUser.Id;
+
+            // Your logic here
+
             if (model.file == null || model.file.Length == 0)
             {
                 return BadRequest("Invalid file");
@@ -140,18 +133,18 @@ namespace WEBAPP.Controllers
             var uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "courses", uniqueFileName);
 
 
-            var courses = new Courses()
+            var courses = new Course()
             {
-                
-                Url= "~/courses/" + uniqueFileName,
+
+                Url = "~/courses/" + uniqueFileName,
                 Name = model.Name,
                 Description = model.Description,
-                Author_id = userId
+                UserId = userId
             };
 
             database.Courses.Add(courses);
             await database.SaveChangesAsync();
-          
+
 
             using (var stream = new FileStream(uploadPath, FileMode.Create))
             {
@@ -162,17 +155,17 @@ namespace WEBAPP.Controllers
             {
                 var notification = new Notification()
                 {
-                    id_target_user = friend.Id,
+                    UserId = friend.Id,
                     IsRead = false,
                     EventTime = DateTime.Now,
                     Message = "A new course has been added",
                     Title = "New Course",
                 };
                 database.notifications.Add(notification);
-                
+
             }
             database.SaveChanges();
-            return RedirectToAction("Index","Document");
+            return RedirectToAction("Index", "Document");
 
         }
     }

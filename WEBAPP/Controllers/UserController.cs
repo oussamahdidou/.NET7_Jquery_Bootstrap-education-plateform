@@ -40,14 +40,14 @@ namespace WEBAPP.Controllers
                 Name = user.UserName,
                 ProfileImage = user.Image_Path,
                 Nationality = user.Nationality,
-                followers = database.Follows.Count(x => x.id_following == id),
-                following = database.Follows.Count(x => x.id_follower == id),
-                postCount = database.Applications.Count(x => x.Author_id == id),
+                followers = database.Follows.Count(x => x.FollowedId == id),
+                following = database.Follows.Count(x => x.FollowerId == id),
+                postCount = database.Applications.Count(x => x.UserId == id),
                 HisAccount = id == userId,
                 FollowStatus = database.Follows
-              .FirstOrDefault(item => item.id_follower == id && item.id_following == userId) == null,
-                NmbrMessages = database.notifications.Count(item => item.id_target_user == id && item.IsRead == false),
-                Notifications = database.notifications.Where(x => x.id_target_user == id).OrderByDescending(x => x.EventTime).ToList(),
+              .FirstOrDefault(item => item.FollowerId == id && item.FollowedId == userId) == null,
+                NmbrMessages = database.notifications.Count(item => item.UserId == id && item.IsRead == false),
+                Notifications = database.notifications.Where(x => x.UserId == id).OrderByDescending(x => x.EventTime).ToList(),
 
             };
             return View(Response);
@@ -60,7 +60,7 @@ namespace WEBAPP.Controllers
             string userId = currentUser.Id;
             string username = currentUser.UserName;
             var existingItem = database.Follows
-              .FirstOrDefault(item => item.id_follower == number && item.id_following == userId);
+              .FirstOrDefault(item => item.FollowerId == number && item.FollowedId == userId);
 
             if (existingItem != null)
             {
@@ -74,8 +74,8 @@ namespace WEBAPP.Controllers
                 // Create a new item and add it
                 var newItem = new Follow
                 {
-                    id_follower = number,
-                    id_following = userId,
+                    FollowerId = number,
+                    FollowedId = userId,
                     // Other properties of the item...
                 };
                 ButtonStatus = "Unfollow";
@@ -85,7 +85,7 @@ namespace WEBAPP.Controllers
                     Title = "New Follower",
                     Message = username + " Started following you",
                     EventTime = DateTime.Now,
-                    id_target_user = number,
+                    UserId = number,
                     IsRead = false,
 
                 };
@@ -98,9 +98,9 @@ namespace WEBAPP.Controllers
 
             return Json(new
             {
-                followers = database.Follows.Count(x => x.id_following == number),
-                following = database.Follows.Count(x => x.id_follower == number),
-                postCount = database.Applications.Count(x => x.Author_id == number),
+                followers = database.Follows.Count(x => x.FollowedId == number),
+                following = database.Follows.Count(x => x.FollowerId == number),
+                postCount = database.Applications.Count(x => x.UserId == number),
                 buttonStatus = ButtonStatus,
 
             });
@@ -113,14 +113,14 @@ namespace WEBAPP.Controllers
 
             var currentUser = await userManager.GetUserAsync(User);
             string userId = currentUser.Id;
-            var notifications = database.notifications.Where(x => x.id_target_user == userId);
+            var notifications = database.notifications.Where(x => x.UserId == userId);
             foreach (var notification in notifications)
             {
                 notification.IsRead = true;
 
             }
             database.SaveChanges();
-            var list = database.notifications.Where(x => x.id_target_user == userId)
+            var list = database.notifications.Where(x => x.UserId == userId)
                .OrderByDescending(x => x.EventTime)
                .Take(10)
                .ToList();
@@ -132,7 +132,7 @@ namespace WEBAPP.Controllers
             var currentUser = await userManager.GetUserAsync(User);
             string userId = currentUser.Id;
 
-            var notificationcount = database.notifications.Count(x => x.IsRead == false && x.id_target_user == userId);
+            var notificationcount = database.notifications.Count(x => x.IsRead == false && x.UserId == userId);
             database.SaveChanges();
             return Json(notificationcount);
         }

@@ -4,12 +4,15 @@ namespace WEBAPP.Models
 {
     public class Follow
     {
-        [Key]
-        public int Id { get; set; }
-        public string id_follower { get; set; }
-        public string id_following { get; set; }
-    
-    
+        public string FollowerId { get; set; }
+        public User Follower { get; set; }
+
+        public string FollowedId { get; set; }
+        public User Followed { get; set; }
+
+        public DateTime FollowedOn { get; set; } = DateTime.UtcNow;
+
+
     }
   
 }
