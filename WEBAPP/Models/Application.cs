@@ -12,7 +12,7 @@ namespace WEBAPP.Models
         public string UserId { get; set; }
         [MaxLength(100)]
         public string? Url { get; set; }
-        public DateTime? Created { get; set; } 
+        public DateTime? Created { get; set; }
         public List<ProjectRating> ProjectRatings { get; set; } = new List<ProjectRating>();
 
     }
