@@ -214,32 +214,21 @@ namespace WEBAPP.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Applications");
-                });
-
-            modelBuilder.Entity("WEBAPP.Models.CourseRating", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Id_User")
+                    b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Id_cource")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("CoursesRating");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Applications");
                 });
 
-            modelBuilder.Entity("WEBAPP.Models.Courses", b =>
+            modelBuilder.Entity("WEBAPP.Models.Course", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -264,28 +253,46 @@ namespace WEBAPP.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("WEBAPP.Models.Follow", b =>
+            modelBuilder.Entity("WEBAPP.Models.CourseRating", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.HasKey("UserId", "CourseId");
 
-                    b.Property<string>("id_follower")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasIndex("CourseId");
 
-                    b.Property<string>("id_following")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.ToTable("CoursesRating");
+                });
 
-                    b.HasKey("Id");
+            modelBuilder.Entity("WEBAPP.Models.Follow", b =>
+                {
+                    b.Property<string>("FollowerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("FollowedId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("FollowedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("FollowerId", "FollowedId");
+
+                    b.HasIndex("FollowedId");
 
                     b.ToTable("Follows");
                 });
@@ -312,31 +319,28 @@ namespace WEBAPP.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("id_target_user")
+                    b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("notifications");
                 });
 
             modelBuilder.Entity("WEBAPP.Models.ProjectRating", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ApplicationId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.HasKey("UserId", "ApplicationId");
 
-                    b.Property<string>("Id_User")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Id_project")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
+                    b.HasIndex("ApplicationId");
 
                     b.ToTable("ProjectsRating");
                 });
@@ -468,6 +472,123 @@ namespace WEBAPP.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("WEBAPP.Models.Application", b =>
+                {
+                    b.HasOne("WEBAPP.Models.User", "User")
+                        .WithMany("Applications")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("WEBAPP.Models.Course", b =>
+                {
+                    b.HasOne("WEBAPP.Models.User", "User")
+                        .WithMany("Courses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("WEBAPP.Models.CourseRating", b =>
+                {
+                    b.HasOne("WEBAPP.Models.Course", "Course")
+                        .WithMany("CourseRatings")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("WEBAPP.Models.User", "User")
+                        .WithMany("CourseRatings")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("WEBAPP.Models.Follow", b =>
+                {
+                    b.HasOne("WEBAPP.Models.User", "Followed")
+                        .WithMany("Followers")
+                        .HasForeignKey("FollowedId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("WEBAPP.Models.User", "Follower")
+                        .WithMany("Followings")
+                        .HasForeignKey("FollowerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Followed");
+
+                    b.Navigation("Follower");
+                });
+
+            modelBuilder.Entity("WEBAPP.Models.Notification", b =>
+                {
+                    b.HasOne("WEBAPP.Models.User", "User")
+                        .WithMany("Notifications")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("WEBAPP.Models.ProjectRating", b =>
+                {
+                    b.HasOne("WEBAPP.Models.Application", "Application")
+                        .WithMany("ProjectRatings")
+                        .HasForeignKey("ApplicationId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("WEBAPP.Models.User", "User")
+                        .WithMany("ProjectRatings")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Application");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("WEBAPP.Models.Application", b =>
+                {
+                    b.Navigation("ProjectRatings");
+                });
+
+            modelBuilder.Entity("WEBAPP.Models.Course", b =>
+                {
+                    b.Navigation("CourseRatings");
+                });
+
+            modelBuilder.Entity("WEBAPP.Models.User", b =>
+                {
+                    b.Navigation("Applications");
+
+                    b.Navigation("CourseRatings");
+
+                    b.Navigation("Courses");
+
+                    b.Navigation("Followers");
+
+                    b.Navigation("Followings");
+
+                    b.Navigation("Notifications");
+
+                    b.Navigation("ProjectRatings");
                 });
 #pragma warning restore 612, 618
         }

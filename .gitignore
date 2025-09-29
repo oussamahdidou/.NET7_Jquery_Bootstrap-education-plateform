@@ -1,0 +1,77 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+[Bb]uild/
+[Ll]ogs/
+
+# NuGet packages
+*.nupkg
+packages/
+*.snupkg
+
+# Visual Studio Code
+.vscode/
+
+# Others
+*.dbmdl
+*.pdb
+*.cache
+*.log
+*.ide
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Publish output
+*.PublishProfiles/
+*.pubxml
+
+# Resharper
+*.DotSettings.user
+
+# Backup & temp files
+*.bak
+*.tmp
+*.temp
+~$*
+/WEBAPP/obj/project.assets.json
+/WEBAPP/obj/project.nuget.cache
+/WEBAPP/obj/WEBAPP.csproj.nuget.dgspec.json
+/WEBAPP/obj/WEBAPP.csproj.nuget.g.props
+/WEBAPP/bin/Debug/net7.0/appsettings.json
+/WEBAPP/bin/Debug/net7.0/WEBAPP.dll
+/WEBAPP/bin/Debug/net7.0/WEBAPP.exe
+/WEBAPP/bin/Debug/net7.0/WEBAPP.pdb
+/WEBAPP/bin/Debug/net7.0/WEBAPP.staticwebassets.runtime.json
+/WEBAPP/obj/Debug/net7.0/apphost.exe
+/WEBAPP/obj/Debug/net7.0/ref/WEBAPP.dll
+/WEBAPP/obj/Debug/net7.0/refint/WEBAPP.dll
+/WEBAPP/obj/Debug/net7.0/staticwebassets.build.json
+/WEBAPP/obj/Debug/net7.0/staticwebassets.development.json
+/WEBAPP/obj/Debug/net7.0/WEBAPP.AssemblyInfo.cs
+/WEBAPP/obj/Debug/net7.0/WEBAPP.AssemblyInfoInputs.cache
+/WEBAPP/obj/Debug/net7.0/WEBAPP.assets.cache
+/WEBAPP/obj/Debug/net7.0/WEBAPP.csproj.AssemblyReference.cache
+/WEBAPP/obj/Debug/net7.0/WEBAPP.csproj.CoreCompileInputs.cache
+/WEBAPP/obj/Debug/net7.0/WEBAPP.csproj.FileListAbsolute.txt
+/WEBAPP/obj/Debug/net7.0/WEBAPP.dll
+/WEBAPP/obj/Debug/net7.0/WEBAPP.GeneratedMSBuildEditorConfig.editorconfig
+/WEBAPP/obj/Debug/net7.0/WEBAPP.genruntimeconfig.cache
+/WEBAPP/obj/Debug/net7.0/WEBAPP.pdb
+/WEBAPP/obj/Debug/net7.0/WEBAPP.RazorAssemblyInfo.cache
+/WEBAPP/wwwroot/projects/12c1aa22-51be-4fa9-9666-4b0799b1d190.pdf
+/WEBAPP/wwwroot/projects/2875fbd3-3418-43eb-8970-89c1b9ffc8bb.pdf
+/WEBAPP/wwwroot/projects/446729d4-e4a5-4409-b02d-5f3e5fd783a0.pdf
+/WEBAPP/wwwroot/projects/9a51b5d6-6db8-43ba-944b-cb752c33f761.pdf
+/WEBAPP/wwwroot/projects/a8edf413-ac74-49a3-926f-22824995eacd.pdf
+/WEBAPP/wwwroot/projects/ea18d664-ec45-4626-9a23-f41b6ad15943.pdf
+/WEBAPP/wwwroot/projects/fc5c232f-9c2a-4781-9b49-fa90de7326e7.pdf
+/.vs/WEBAPP/v17/.suo
+/WEBAPP/obj/Debug/net7.0/refint/WEBAPP.dll

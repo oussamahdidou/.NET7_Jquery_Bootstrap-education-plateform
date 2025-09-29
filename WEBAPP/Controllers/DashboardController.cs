@@ -72,7 +72,7 @@ namespace WEBAPP.Controllers
                 .GroupJoin(
                     ratings,
                     c => c.Id,
-                    l => l.Id_cource,
+                    l => l.CourseId,
                     (course, ratingGroup) => new 
                     {
                         id = course.Id,
@@ -87,7 +87,7 @@ namespace WEBAPP.Controllers
          {
              User = user.UserName,
              Applicationcount = database.Applications
-                 .Where(app => app.Author_id == user.Id)
+                 .Where(app => app.UserId == user.Id)
                  .Count()
          })
          .OrderByDescending(u => u.Applicationcount)

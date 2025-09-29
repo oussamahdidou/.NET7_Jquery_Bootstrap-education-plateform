@@ -89,7 +89,7 @@ namespace WEBAPP.Controllers
                 var result = await signInManager.PasswordSignInAsync(newuser, register.Password, false, false);
                 var notification = new Notification() 
                 {
-                    id_target_user = newuser.Id,
+                    UserId = newuser.Id,
                     IsRead = false,
                     EventTime = DateTime.Now,
                     Message = "Welcome to our community",

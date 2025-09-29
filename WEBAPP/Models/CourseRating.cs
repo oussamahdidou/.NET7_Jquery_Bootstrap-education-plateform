@@ -6,10 +6,9 @@ namespace WEBAPP.Models
     {
         
 
-        [Key]
-        public int Id { get; set; }
-        public int Id_cource { get; set; }
-        public string Id_User { get; set; }
-     
+        public Course Course { get; set; }
+        public int CourseId { get; set; }
+        public User User { get; set; }
+        public string UserId { get; set; }
     }
 }

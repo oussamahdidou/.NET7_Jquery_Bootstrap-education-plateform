@@ -27,27 +27,18 @@ namespace WEBAPP.Controllers
             var currentUser = User.Identity.IsAuthenticated ? await userManager.GetUserAsync(User) : null;
             string? userId = currentUser?.Id;
 
-            var courses = await database.Applications.ToListAsync(); // Retrieve courses asynchronously
-            var ratings = await database.ProjectsRating.ToListAsync(); // Retrieve ratings asynchronously
+            var courses = await database.Applications.Include(x=>x.ProjectRatings).Select(x=>new IndexProject
+            {
+                Author=x.User,
+                Description=x.Description,
+                IsLiked= x.ProjectRatings.Any(x=>x.UserId==userId),
+                likesnumber=x.ProjectRatings.Count(),
+               Name=x.Name,
+               ProjectPath=x.Url,
+               id=x.Id
+            }).ToListAsync();
 
-            var response = courses
-                .GroupJoin(
-                    ratings,
-                    c => c.Id,
-                    l => l.Id_project,
-                    (course, ratingGroup) => new IndexProject
-                    {
-                        id = course.Id,
-                        Name = course.Name,
-                        Description = course.Description,
-                        ProjectPath = course.Url,
-                        IsLiked = ratingGroup.Any(item => item.Id_project == course.Id && item.Id_User == userId),
-                        likesnumber = ratingGroup.Count() ,// Count the likes
-                        Author = userManager.Users.FirstOrDefault(x => x.Id == course.Author_id),
-                    })
-                .ToList(); // Materialize the result
-
-            return View(response);
+            return View(courses);
         }
         [Authorize]
         [HttpPost]
@@ -57,7 +48,7 @@ namespace WEBAPP.Controllers
             string userId = currentUser.Id;
             string username = currentUser.UserName;
             var existingItem = database.ProjectsRating
-              .FirstOrDefault(item => item.Id_project == number && item.Id_User == userId);
+              .FirstOrDefault(item => item.ApplicationId == number && item.UserId== userId);
 
             if (existingItem != null)
             {
@@ -70,16 +61,15 @@ namespace WEBAPP.Controllers
                 // Create a new item and add it
                 var newItem = new ProjectRating
                 {
-                    Id_project = number,
-                    Id_User = userId,
-                    // Other properties of the item...
+                   ApplicationId = number,
+                   UserId= userId,
                 };
                 var notification = new Notification()
                 {
                     Title = "Post Like",
                     Message = username + " Liked your post",
                     EventTime = DateTime.Now,
-                    id_target_user = database.Applications.FirstOrDefault(item => item.Id == number).Author_id,
+                    UserId = database.Applications.Where(item => item.Id == number).Select(x=>x.UserId).FirstOrDefault(),
                     IsRead = false,
 
                 };
@@ -90,7 +80,7 @@ namespace WEBAPP.Controllers
             // Save changes to the database
             database.SaveChanges();
             int count = database.ProjectsRating
-           .Count(item => item.Id_project == number);
+           .Count(item => item.ApplicationId == number);
 
             return Json(count);
         }
@@ -154,8 +144,9 @@ namespace WEBAPP.Controllers
                 Url = "~/projects/" + uniqueFileName,
                 Name = model.Name,
                 Description = model.Description,
-                Author_id = userId,
-               Created= DateTime.Now
+                UserId = userId,
+               Created= DateTime.Now,
+               
         };
 
             database.Applications.Add(apps);
@@ -166,12 +157,12 @@ namespace WEBAPP.Controllers
             {
                 await model.file.CopyToAsync(stream);
             }
-            var friends = database.Follows.Where(x=>x.id_follower==currentUser.Id);
+            var friends = database.Follows.Where(x=>x.FollowedId==currentUser.Id);
             foreach(var friend in friends)
             {
                 var notification = new Notification()
                 {
-                    id_target_user = friend.id_following,
+                    UserId = friend.FollowerId,
                     IsRead = false,
                     EventTime = DateTime.Now,
                     Message = currentUser.UserName + " added a new project",
