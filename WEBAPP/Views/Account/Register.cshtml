@@ -1,0 +1,215 @@
+﻿@using WEBAPP.VModels
+
+
+@model RegisterVM
+@*
+  
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height:100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            position: relative;
+            max-width: 550px;
+            width: 100%;
+            background: #FCEDDA;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+            .container header {
+                font-size: 1.2rem;
+                color: #000;
+                font-weight: 600;
+                text-align: center;
+            }
+
+            .container .form {
+                margin-top: 15px;
+            }
+
+        .form .input-box {
+            width: 90%;
+            margin-top: 10px;
+        }
+
+        .input-box label {
+            color: #000;
+        }
+
+        .form :where(.input-box input, .select-box) {
+            position: relative;
+            height: 35px;
+            width: 100%;
+            outline: none;
+            font-size: 1rem;
+            color: #808080;
+            margin-top: 5px;
+            border: 1px solid #EE4E34;
+            border-radius: 6px;
+            padding: 0 15px;
+            background: #FCEDDA;
+        }
+
+        .input-box input:focus {
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .form .column {
+            display: flex;
+            column-gap: 15px;
+        }
+
+        .form .gender-box {
+            margin-top: 10px;
+        }
+
+        .form :where(.gender-option, .gender) {
+            display: flex;
+            align-items: center;
+            column-gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .form .gender {
+            column-gap: 5px;
+        }
+
+        .gender input {
+            accent-color: #EE4E34;
+        }
+
+        .form :where(.gender input, .gender label) {
+            cursor: pointer;
+        }
+
+        .gender label {
+            color: #000;
+        }
+
+        .address :where(input, .select-box) {
+            margin-top: 10px;
+        }
+
+        .select-box select {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            border: none;
+            color: #808080;
+            font-size: 1rem;
+            background: #FCEDDA;
+        }
+
+        .form button {
+            height: 40px;
+            width: 100%;
+            color: #000;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-top: 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #EE4E34;
+        }
+
+            .form button:hover {
+                background: #EE3E34;
+            }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <header>Registration Form</header>
+        <form class="form" asp-controller="Account" asp-action="Register">
+            <div class="input-box">
+                <label>Username</label>
+                <input required placeholder="Username" type="text" asp-for="Username">
+            </div>
+            <div class="input-box">
+                <label>Email</label>
+                <input required="" placeholder="E-mail" type="text" asp-for="Email">
+            </div>
+            <div class="input-box">
+                <label>Password</label>
+                <input required="" placeholder="Password" type="password" asp-for="Password">
+            </div>
+            <div class="input-box">
+                <label>Confirm Password</label>
+                <input required="" placeholder="Confirm Password" type="password" asp-for="ConfirmedPassword">
+            </div>
+            <div class="gender-box">
+                <label>Gender</label>
+                <div class="gender-option">
+                    <div class="gender">
+                        <input checked="" value="Male" id="check-male" type="radio" asp-for="Gender">
+                        <label for="check-male">Male</label>
+                    </div>
+                    <div class="gender">
+                        <input value="Female" id="check-female" type="radio" asp-for="Gender">
+                        <label for="check-female">Female</label>
+                    </div>
+
+                </div>
+            </div>
+            <div class="input-box address">
+
+                <div class="column">
+                    <div class="select-box">
+                        <select asp-for="Nationality">
+                            <option hidden="">Country</option>
+                            <option value="United States">United States</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Afghanistan">Afghanistan </option>
+                            <option value="Albania">Albania </option>
+                            <option value="Algeria">Algeria </option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola </option>
+                            <option value="Argentina">Argentina </option>
+                            <option value="Armenia">Armenia </option>
+                            <option value="Australia">Australia </option>
+                            <option value="Austria">Austria </option>
+                            <option value="Azerbaijan">Azerbaijan </option>
+                            <option value="Bangladesh">Bangladesh </option>
+                            <option value="Belgium">Belgium </option>
+                            <option value="Brazil">Brazil </option>
+                            <option value="Canada">Canada </option>
+                            <option value="China">China </option>
+                            <option value="Egypt">Egypt </option>
+                            <option value="France">France </option>
+                            <option value="Germany">Germany </option>
+                            <option value="India">India </option>
+                            <option value="Italy">Italy </option>
+                            <option value="United Kingdom">United Kingdom </option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+            <button>Submit</button>
+        </form>
+    </section>
+</body>
+
+</html>

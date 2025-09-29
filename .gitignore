@@ -1,0 +1,43 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+[Bb]uild/
+[Ll]ogs/
+
+# NuGet packages
+*.nupkg
+packages/
+*.snupkg
+
+# Visual Studio Code
+.vscode/
+
+# Others
+*.dbmdl
+*.pdb
+*.cache
+*.log
+*.ide
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Publish output
+*.PublishProfiles/
+*.pubxml
+
+# Resharper
+*.DotSettings.user
+
+# Backup & temp files
+*.bak
+*.tmp
+*.temp
+~$*
