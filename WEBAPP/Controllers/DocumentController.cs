@@ -33,6 +33,7 @@ namespace WEBAPP.Controllers
 
             var courses = await database.Courses.Include(x => x.CourseRatings).Select(x => new IndexCourseVM
             {
+                id = x.Id,
                 CoursePath = x.Url,
                 Description = x.Description,
                 IsLiked = x.CourseRatings.Any(x => x.UserId == userId),
@@ -61,18 +62,15 @@ namespace WEBAPP.Controllers
 
             else
             {
-                // Create a new item and add it
                 var newItem = new CourseRating
                 {
                     CourseId = number,
                     UserId = userId,
-                    // Other properties of the item...
                 };
 
                 database.CoursesRating.Add(newItem);
             }
 
-            // Save changes to the database
             database.SaveChanges();
             int count = database.CoursesRating
            .Count(item => item.CourseId == number);

@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>230aedaa-43f6-4e0a-be50-de08fc735209</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,8 +23,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\courses\" />
-    <Folder Include="wwwroot\projects\" />
     <Folder Include="wwwroot\profiles\" />
+    <Folder Include="wwwroot\projects\" />
   </ItemGroup>
 
 </Project>

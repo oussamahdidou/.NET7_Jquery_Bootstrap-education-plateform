@@ -7,7 +7,7 @@ using WEBAPP.VModels;
 
 namespace WEBAPP.Controllers
 {
-    
+
     public class ApplicationController : Controller
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
@@ -27,15 +27,15 @@ namespace WEBAPP.Controllers
             var currentUser = User.Identity.IsAuthenticated ? await userManager.GetUserAsync(User) : null;
             string? userId = currentUser?.Id;
 
-            var courses = await database.Applications.Include(x=>x.ProjectRatings).Select(x=>new IndexProject
+            var courses = await database.Applications.Include(x => x.ProjectRatings).Select(x => new IndexProject
             {
-                Author=x.User,
-                Description=x.Description,
-                IsLiked= x.ProjectRatings.Any(x=>x.UserId==userId),
-                likesnumber=x.ProjectRatings.Count(),
-               Name=x.Name,
-               ProjectPath=x.Url,
-               id=x.Id
+                Author = x.User,
+                Description = x.Description,
+                IsLiked = x.ProjectRatings.Any(x => x.UserId == userId),
+                likesnumber = x.ProjectRatings.Count(),
+                Name = x.Name,
+                ProjectPath = x.Url,
+                id = x.Id
             }).ToListAsync();
 
             return View(courses);
@@ -48,7 +48,7 @@ namespace WEBAPP.Controllers
             string userId = currentUser.Id;
             string username = currentUser.UserName;
             var existingItem = database.ProjectsRating
-              .FirstOrDefault(item => item.ApplicationId == number && item.UserId== userId);
+              .FirstOrDefault(item => item.ApplicationId == number && item.UserId == userId);
 
             if (existingItem != null)
             {
@@ -61,15 +61,15 @@ namespace WEBAPP.Controllers
                 // Create a new item and add it
                 var newItem = new ProjectRating
                 {
-                   ApplicationId = number,
-                   UserId= userId,
+                    ApplicationId = number,
+                    UserId = userId,
                 };
                 var notification = new Notification()
                 {
                     Title = "Post Like",
                     Message = username + " Liked your post",
                     EventTime = DateTime.Now,
-                    UserId = database.Applications.Where(item => item.Id == number).Select(x=>x.UserId).FirstOrDefault(),
+                    UserId = database.Applications.Where(item => item.Id == number).Select(x => x.UserId).FirstOrDefault(),
                     IsRead = false,
 
                 };
@@ -96,7 +96,7 @@ namespace WEBAPP.Controllers
 
 
                 // Get just the file name
-                string fileName = Path.GetFileName(FilePath);
+                string fileName = Path.GetFileName(FilePath) ?? throw new EndOfStreamException();
                 var deletePath = Path.Combine(_webHostEnvironment.WebRootPath, "projects", fileName);
                 // Item exists, so delete it
                 database.Applications.Remove(existingItem);
@@ -128,7 +128,6 @@ namespace WEBAPP.Controllers
             // Access the user's ID
             string userId = currentUser.Id;
 
-            // Your logic here
 
             if (model.file == null || model.file.Length == 0)
             {
@@ -145,9 +144,9 @@ namespace WEBAPP.Controllers
                 Name = model.Name,
                 Description = model.Description,
                 UserId = userId,
-               Created= DateTime.Now,
-               
-        };
+                Created = DateTime.Now,
+
+            };
 
             database.Applications.Add(apps);
             await database.SaveChangesAsync();
@@ -157,8 +156,8 @@ namespace WEBAPP.Controllers
             {
                 await model.file.CopyToAsync(stream);
             }
-            var friends = database.Follows.Where(x=>x.FollowedId==currentUser.Id);
-            foreach(var friend in friends)
+            var friends = database.Follows.Where(x => x.FollowedId == currentUser.Id);
+            foreach (var friend in friends)
             {
                 var notification = new Notification()
                 {
@@ -169,19 +168,10 @@ namespace WEBAPP.Controllers
                     Title = "New Project",
                 };
                 database.notifications.Add(notification);
-               
+
             }
             database.SaveChanges();
-            //var notification = new Notification()
-            //{
-            //    id_target_user = "",
-            //    IsRead=false,
-            //    EventTime = DateTime.Now,
-            //    Message=currentUser.UserName+" added a new project",
-            //    Title="New Project",
 
-
-            //};
             return RedirectToAction("Index", "Application");
 
         }

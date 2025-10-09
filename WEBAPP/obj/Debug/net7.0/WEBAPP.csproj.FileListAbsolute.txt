@@ -189,7 +189,6 @@ C:\Users\OussamaHDIDOU\Downloads\NET7_Jquery_Bootstrap-education-plateform-9\.NE
 C:\Users\OussamaHDIDOU\Downloads\NET7_Jquery_Bootstrap-education-plateform-9\.NET7_Jquery_Bootstrap-education-plateform-9\WEBAPP\obj\Debug\net7.0\staticwebassets.build.json.cache
 C:\Users\OussamaHDIDOU\Downloads\NET7_Jquery_Bootstrap-education-plateform-9\.NET7_Jquery_Bootstrap-education-plateform-9\WEBAPP\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\OussamaHDIDOU\Downloads\NET7_Jquery_Bootstrap-education-plateform-9\.NET7_Jquery_Bootstrap-education-plateform-9\WEBAPP\obj\Debug\net7.0\staticwebassets.build.endpoints.json
-C:\Users\OussamaHDIDOU\Downloads\NET7_Jquery_Bootstrap-education-plateform-9\.NET7_Jquery_Bootstrap-education-plateform-9\WEBAPP\obj\Debug\net7.0\staticwebassets.upToDateCheck.txt
 C:\Users\OussamaHDIDOU\Downloads\NET7_Jquery_Bootstrap-education-plateform-9\.NET7_Jquery_Bootstrap-education-plateform-9\WEBAPP\obj\Debug\net7.0\WEBAPP.csproj.Up2Date
 C:\Users\OussamaHDIDOU\Downloads\NET7_Jquery_Bootstrap-education-plateform-9\.NET7_Jquery_Bootstrap-education-plateform-9\WEBAPP\obj\Debug\net7.0\WEBAPP.dll
 C:\Users\OussamaHDIDOU\Downloads\NET7_Jquery_Bootstrap-education-plateform-9\.NET7_Jquery_Bootstrap-education-plateform-9\WEBAPP\obj\Debug\net7.0\refint\WEBAPP.dll

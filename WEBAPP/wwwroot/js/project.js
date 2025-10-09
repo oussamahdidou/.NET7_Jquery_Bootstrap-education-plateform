@@ -53,8 +53,8 @@ $(document).ready(function () {
             data: { number: item },
             success: function (result) {
                 console.log(result);
-                clickedContainer.find(".likes").text(result + " Like
-                        console.log("Like container clicked.");
+                clickedContainer.find(".likes").text(result + " Like");
+                console.log("Like container clicked.");
                 clickedContainer.find(".fa-solid.fa-heart").toggleClass("checked unchecked");
             },
             error: function (error) {

@@ -16,20 +16,19 @@ namespace WEBAPP.Controllers
         private readonly SignInManager<User> signInManager;
         private readonly Data.Database database;
         private readonly RoleManager<IdentityRole> roleManager;
-        public DashboardController(RoleManager<IdentityRole> roleManager,UserManager<User> userManager, SignInManager<User> signInManager, Data.Database database)
+        public DashboardController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, SignInManager<User> signInManager, Data.Database database)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.database = database;
             this.roleManager = roleManager;
         }
-        public async Task <IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             var currentUser = await userManager.GetUserAsync(User);
             var studentRoleId = await roleManager.FindByNameAsync("student");
             var usersInCustomerRole = await userManager.GetUsersInRoleAsync(studentRoleId.Name);
             int customerCount = usersInCustomerRole.Count;
-           // ViewData["map"]= database.Users.GroupBy(u => u.Nationality).Select(g => new { Nationality = g.Key, Count = g.Count() }).ToList();
 
             var reponse = new DashboardVM()
             {
@@ -38,7 +37,7 @@ namespace WEBAPP.Controllers
                 Students = customerCount,
                 Relations = database.Follows.Count(),
                 image = currentUser.Image_Path,
-                username = currentUser.UserName 
+                username = currentUser.UserName
 
             };
 
@@ -46,7 +45,7 @@ namespace WEBAPP.Controllers
         }
         public async Task<IActionResult> DashboardData()
         {
-           var gender= database.Users.GroupBy(u => u.Gender).Select(g => new { Gender = g.Key, Count = g.Count() }).ToList();
+            var gender = database.Users.GroupBy(u => u.Gender).Select(g => new { Gender = g.Key, Count = g.Count() }).ToList();
             var monthlyCounts = await database.Applications
                  .GroupBy(a => a.Created.Value.Month)
                  .Select(group => new
@@ -73,13 +72,13 @@ namespace WEBAPP.Controllers
                     ratings,
                     c => c.Id,
                     l => l.CourseId,
-                    (course, ratingGroup) => new 
+                    (course, ratingGroup) => new
                     {
                         id = course.Id,
-                        Name=course.Name,
+                        Name = course.Name,
                         likesnumber = ratingGroup.Count(),// Count the likes
 
-                    }).OrderByDescending(x=>x.likesnumber)
+                    }).OrderByDescending(x => x.likesnumber)
                 .ToList(); // Materialize the result
 
             var usersWithApplications = database.Users
@@ -94,19 +93,19 @@ namespace WEBAPP.Controllers
          .Take(6)
          .ToList();
 
-            return Json(new {gender=gender,result=result,response=response,usersapp=usersWithApplications});       
+            return Json(new { gender = gender, result = result, response = response, usersapp = usersWithApplications });
         }
 
         public async Task<IActionResult> DashboardMap()
         {
-            var result = database.Users
+            var result = await database.Users
             .GroupBy(u => u.Nationality)
             .Select(g => new
             {
                 Nationality = g.Key,
                 Count = g.Count()
             })
-            .ToList();
+            .ToListAsync();
             return Json(result);
         }
 

@@ -48,7 +48,7 @@
         scrollbar-width: thin; /* or auto */
         scrollbar-color: #888 #ccc; /* Change the colors */
 
-
+        }
     </style>
     <title>Document</title>
 </head>
@@ -134,7 +134,7 @@
                             <div class="d-flex p-2 align-items-center flex-md-row flex-column ">
                                 <div class="mx-auto">
                                     @if(!Model.HisAccount){
-                                        <a type="button" class=" follow py-2 px-5" id="@Model.ProfileId">
+                                        <a href="#" type="button" class=" follow py-2 px-5" id="@Model.ProfileId">
                                             @if (Model.FollowStatus)
                                             {
                                        
